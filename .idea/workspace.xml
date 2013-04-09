@@ -2,61 +2,35 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="2efdd423-3c71-4053-ac25-7698a24f5515" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/src/chosen.css" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/.gitignore" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/README.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/dist/bootstrap-search-debug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/dist/bootstrap-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/examples/example.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/examples/index.md" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/package.json" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/src/bootstrap-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/tests/bootstrap-search-spec.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-search/tests/runner.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-search/1.0.0/bootstrap-search-debug.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-search/1.0.0/bootstrap-search.js" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/upload/IMG_2073.jpg" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/upload/aaa.jpg" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/dne/controller/sloth/LoginController.class" afterPath="$PROJECT_DIR$/target/classes/com/dne/controller/sloth/LoginController.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/dne/controller/sloth/LoginController.java" afterPath="$PROJECT_DIR$/src/main/java/com/dne/controller/sloth/LoginController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/dist/bootstrap-chosen-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/dist/bootstrap-chosen-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-chosen/1.0.0/bootstrap-chosen-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-chosen/1.0.0/bootstrap-chosen-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/dist/bootstrap-chosen.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/dist/bootstrap-chosen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/src/bootstrap-chosen.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/src/bootstrap-chosen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-chosen/1.0.0/bootstrap-chosen.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-chosen/1.0.0/bootstrap-chosen.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-daterangepicker/dist/bootstrap-daterangepicker-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-daterangepicker/dist/bootstrap-daterangepicker-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-daterangepicker/1.0.0/bootstrap-daterangepicker-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-daterangepicker/1.0.0/bootstrap-daterangepicker-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-daterangepicker/dist/bootstrap-daterangepicker.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-daterangepicker/dist/bootstrap-daterangepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-daterangepicker/src/bootstrap-daterangepicker.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-daterangepicker/src/bootstrap-daterangepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-daterangepicker/1.0.0/bootstrap-daterangepicker.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-daterangepicker/1.0.0/bootstrap-daterangepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-datetimepicker/dist/bootstrap-datetimepicker-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-datetimepicker/dist/bootstrap-datetimepicker-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-datetimepicker/1.0.0/bootstrap-datetimepicker-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-datetimepicker/1.0.0/bootstrap-datetimepicker-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-datetimepicker/dist/bootstrap-datetimepicker.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-datetimepicker/dist/bootstrap-datetimepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-datetimepicker/src/bootstrap-datetimepicker.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-datetimepicker/src/bootstrap-datetimepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-datetimepicker/1.0.0/bootstrap-datetimepicker.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-datetimepicker/1.0.0/bootstrap-datetimepicker.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/dist/bootstrap-wysihtml5-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-wysihtml5/1.0.0/bootstrap-wysihtml5-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-wysihtml5/1.0.0/bootstrap-wysihtml5-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/dist/bootstrap-wysihtml5.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/dist/bootstrap-wysihtml5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/src/bootstrap-wysihtml5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-wysihtml5/1.0.0/bootstrap-wysihtml5.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap-wysihtml5/1.0.0/bootstrap-wysihtml5.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap.css" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/plug-in/bootstrap.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/examples/example.html" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-wysihtml5/examples/example.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/init.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/init.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/package.json" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-chosen/package.json" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/poster/dist/poster-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/poster/dist/poster-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/module/poster/1.0.0/poster-debug.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/module/poster/1.0.0/poster-debug.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/operatorsManage/poster.ftl" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/operatorsManage/poster.ftl" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/poster/dist/poster.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/poster/dist/poster.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/poster/src/poster.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/poster/src/poster.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/module/poster/1.0.0/poster.js" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/sea-modules/module/poster/1.0.0/poster.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/springmvc-servlet.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/springmvc-servlet.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/test.html" afterPath="$PROJECT_DIR$/WebContent/test.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/view/userManage/user.ftl" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/view/userManage/user.ftl" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-coffee/node_modules/.bin/cake" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-coffee/node_modules/.bin/cake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/cake" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/cake" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-cssmin/node_modules/.bin/cleancss" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-cssmin/node_modules/.bin/cleancss" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-coffee/node_modules/.bin/coffee" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-coffee/node_modules/.bin/coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/coffee" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/coffee" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/.bin/esparse" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/.bin/esparse" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/.bin/esvalidate" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/.bin/esvalidate" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/.bin/jpegtran-bin" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/.bin/jpegtran-bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/js-yaml" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/js-yaml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/.bin/jshint" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/.bin/jshint" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/libjpeg-turbo/.libs/libjpeg.la" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/libjpeg-turbo/.libs/libjpeg.la" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/libjpeg-turbo/.libs/libturbojpeg.la" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/libjpeg-turbo/.libs/libturbojpeg.la" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/lodash" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/lodash" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/findup-sync/node_modules/.bin/lodash" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/findup-sync/node_modules/.bin/lodash" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/nopt" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/nopt" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/.bin/optipng-bin" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/.bin/optipng-bin" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/.bin/shjs" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-jshint/node_modules/jshint/node_modules/.bin/shjs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-cmd-combo/node_modules/.bin/uglifyjs" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-cmd-combo/node_modules/.bin/uglifyjs" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-uglify/node_modules/.bin/uglifyjs" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-uglify/node_modules/.bin/uglifyjs" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/WebContent/WEB-INF/web.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/.bin/which" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/jpegtran-bin/node_modules/.bin/which" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/optipng-bin/node_modules/.bin/which" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt-contrib-imagemin/node_modules/optipng-bin/node_modules/.bin/which" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/which" afterPath="$PROJECT_DIR$/WebContent/node_modules/grunt/node_modules/.bin/which" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="boot_test.iws" />
     <ignored path=".idea/workspace.xml" />
-    <file path="/Dummy.txt" changelist="2efdd423-3c71-4053-ac25-7698a24f5515" time="1363418435015" ignored="false" />
+    <file path="/Dummy.txt" changelist="2efdd423-3c71-4053-ac25-7698a24f5515" time="1365410091450" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,6 +135,7 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -171,7 +146,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
     </panes>
   </component>
@@ -180,7 +154,7 @@
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="MemberChooser.sorted" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../testing" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/WebContent" />
     <property name="MemberChooser.showClasses" value="true" />
     <property name="FullScreen" value="false" />
     <property name="GoToClass.includeLibraries" value="false" />
@@ -214,10 +188,10 @@
     <frame x="4" y="22" width="1276" height="778" extended-state="0" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3287879" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="true" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.21308859" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.367917" sideWeight="0.67121214" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -298,28 +272,6 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
-  </component>
-  <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-combobox/src/bootstrap-combobox.iml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Cplug-in/bootstrap-combobox/src/bootstrap-combobox.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="24" selection-start="1073" selection-end="1073" vertical-scroll-proportion="0.55105346" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/user/src/user-method.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="25" selection-start="25" selection-end="25" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WebContent/WEB-INF/Cmodule/user/src/user.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="42" column="38" selection-start="1472" selection-end="1472" vertical-scroll-proportion="0.61227787" />
-      </provider>
-    </entry>
   </component>
 </project>
 
