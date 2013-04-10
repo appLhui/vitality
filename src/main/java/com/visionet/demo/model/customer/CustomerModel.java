@@ -68,6 +68,9 @@ public class CustomerModel extends AbstractModel {
     @Column(name = "REMARK")
 	private String remark;          //备注        
     
+    @Column(name = "COMPANY_ID")
+	private Long companyId;    
+    
     @Column(name = "DEL_FLAG")
 	private int delFlag;               
     
@@ -189,6 +192,13 @@ public class CustomerModel extends AbstractModel {
 	}
 	public void setUpdateDate(Date updateDate) {
 		this.updateDate = updateDate;
+	}
+	
+	public Long getCompanyId() {
+		return companyId;
+	}
+	public void setCompanyId(Long companyId) {
+		this.companyId = companyId;
 	}
 	
 	
