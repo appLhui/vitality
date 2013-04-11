@@ -122,7 +122,8 @@ public class CustomerController extends BaseController{
             model.addAttribute(Constants.COMMAND, command);
             return toAdd(model);
         }
-         customerService.save(command);
+        command.setCompanyId(0L);
+        customerService.save(command);
         return "redirect:/customer/success";
     }
     

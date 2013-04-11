@@ -428,6 +428,63 @@
  		<scope>system</scope>
  		<systemPath>C:/Users/PC668/.m2/repository/proxool/proxool/0.9.1/proxool-cglib.jar</systemPath>
  	</dependency>
+ 	<dependency>
+ 		<groupId>org.codehaus.jackson</groupId>
+ 		<artifactId>jackson-core-asl</artifactId>
+ 		<version>1.4.2</version>
+ 		<type>jar</type>
+ 		<scope>compile</scope>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.codehaus.jackson</groupId>
+ 		<artifactId>jackson-mapper-asl</artifactId>
+ 		<version>1.4.2</version>
+ 		<type>jar</type>
+ 		<scope>compile</scope>
+ 	</dependency>
+ 	
+ 	<dependency>
+ 		<groupId>org.apache.neethi</groupId>
+ 		<artifactId>neethi</artifactId>
+ 		<version>3.0.2</version>
+ 		<scope>system</scope>
+ 		<systemPath>C:/Users/PC668/.m2/repository/org/apache/neethi/neethi/3.0.2/neethi-3.0.2.jar</systemPath>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.apache.cxf</groupId>
+ 		<artifactId>cxf</artifactId>
+ 		<version>2.7.3</version>
+ 		<scope>system</scope>
+ 		<systemPath>C:/Users/PC668/.m2/repository/org/apache/cxf/cxf/2.7.3/cxf-2.7.3.jar</systemPath>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.apache.httpcomponents</groupId>
+ 		<artifactId>httpasyncclient</artifactId>
+ 		<version>4.0-beta3</version>
+ 		<type>jar</type>
+ 		<scope>compile</scope>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.apache.ws.xmlschema</groupId>
+ 		<artifactId>xmlschema-core</artifactId>
+ 		<version>2.0.3</version>
+ 		<scope>system</scope>
+ 		<systemPath>C:/Users/PC668/.m2/repository/org/apache/ws/xmlschema/xmlschema-core/2.0.3/xmlschema-core-2.0.3.jar</systemPath>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>wsdl4j</groupId>
+ 		<artifactId>wsdl4j</artifactId>
+ 		<version>1.6.3</version>
+ 		<type>jar</type>
+ 		<scope>compile</scope>
+ 	</dependency>
+ 	<dependency>
+ 		<groupId>org.apache.mina</groupId>
+ 		<artifactId>mina-core</artifactId>
+ 		<version>2.0.5</version>
+ 		<scope>system</scope>
+ 		<systemPath>C:/Users/PC668/.m2/repository/org/apache/mina/mina-core/2.0.5/mina-core-2.0.5.jar</systemPath>
+ 	</dependency>
  </dependencies>
   <build>
   <sourceDirectory>src/main/java</sourceDirectory>  

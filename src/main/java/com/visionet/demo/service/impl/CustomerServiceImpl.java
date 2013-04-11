@@ -1,5 +1,7 @@
 package com.visionet.demo.service.impl;
 
+import java.util.List;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,7 +27,7 @@ import com.visionet.demo.service.CustomerService;
 public class CustomerServiceImpl extends BaseService<CustomerModel, Integer> implements CustomerService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
-
+    
     private CustomerDao customerDao;
 
     @Autowired
@@ -41,6 +43,11 @@ public class CustomerServiceImpl extends BaseService<CustomerModel, Integer> imp
     @Override
     public Page<CustomerModel> query(int pn, int pageSize, CustomerQueryModel command) {
         return PageUtil.getPage(customerDao.countQuery(command) ,pn, customerDao.query(pn, pageSize, command), pageSize);
+    }
+    
+    @Override
+    public List<CustomerModel> getCustomerListByCompanyId(Long companyId){
+    	return customerDao.getCustomerListByCompanyId(companyId);
     }
 
    
