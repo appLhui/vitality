@@ -10,9 +10,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import com.dne.sloth.webservice.http.CrmHttp;
 import com.visionet.demo.model.customer.CustomerModel;
 import com.visionet.demo.service.CustomerService;
-import com.visionet.webservice.http.CrmHttp;
 import com.visionet.webservice.server.vo.CustomerInfo;
 
 
@@ -20,9 +20,6 @@ import com.visionet.webservice.server.vo.CustomerInfo;
 public class CrmHttpImpl implements CrmHttp{
 	private static final Logger logger = LoggerFactory.getLogger(CrmHttpImpl.class);
 	
-	public CrmHttpImpl(){
-		System.out.println("-----CrmHttpImpl-------");
-	}
 	
 	@Autowired
 	private CustomerService customerService;
@@ -38,8 +35,9 @@ public class CrmHttpImpl implements CrmHttp{
 		List<CustomerModel> cmList = customerService.getCustomerListByCompanyId(companyId);
 		List<CustomerInfo> ciList = new ArrayList<CustomerInfo>();
 		if(cmList!=null&&!cmList.isEmpty()){
-			CustomerInfo ci = new CustomerInfo();
+			
 			for(CustomerModel cm : cmList){
+				CustomerInfo ci = new CustomerInfo();
 				BeanUtils.copyProperties(ci, cm);
 				ciList.add(ci);
 			}

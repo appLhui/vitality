@@ -1,4 +1,4 @@
-package com.visionet.webservice.http;
+package com.dne.sloth.webservice.http;
 
 import java.util.List;
 

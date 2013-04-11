@@ -3,7 +3,7 @@ package com.visionet.webservice.client;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import com.visionet.webservice.http.CrmHttp;
+import com.dne.sloth.webservice.http.CrmHttp;
 import com.visionet.webservice.server.vo.CustomerInfo;
 
 

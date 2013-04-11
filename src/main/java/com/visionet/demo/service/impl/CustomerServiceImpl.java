@@ -27,9 +27,6 @@ import com.visionet.demo.service.CustomerService;
 public class CustomerServiceImpl extends BaseService<CustomerModel, Integer> implements CustomerService {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CustomerServiceImpl.class);
-    public CustomerServiceImpl(){
-		System.out.println("----CustomerServiceImpl-------");
-	}
     
     private CustomerDao customerDao;
 

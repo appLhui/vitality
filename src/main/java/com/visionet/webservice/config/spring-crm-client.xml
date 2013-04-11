@@ -16,6 +16,6 @@
       
     <jaxws:client   
         id="getCrmClient"   
-        address="http://localhost:8081/vitality/getCrm"
-        serviceClass="com.visionet.webservice.http.CrmHttp"/>  
+        address="http://localhost:8081/vitality/cxf/getCrm"
+        serviceClass="com.dne.sloth.webservice.http.CrmHttp"/> 
 </beans>

@@ -68,7 +68,7 @@ public class CustomerModel extends AbstractModel {
     @Column(name = "REMARK")
 	private String remark;          //备注        
     
-    @Column(name = "COMPANY_ID")
+    @Column(name = "COMPANY_ID",updatable=false)
 	private Long companyId;    
     
     @Column(name = "DEL_FLAG")
