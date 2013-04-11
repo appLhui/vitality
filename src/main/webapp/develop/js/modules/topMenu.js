@@ -323,11 +323,11 @@ define("topMenu", function(require) {
         });
         var topMenuModel = new TopMenuModel();
         var TopMenuView = Backbone.View.extend({
-            el: $("#topMenuDiv"),
+            el: $("#topMenuUl"),
             template: _.template($("#topMenu").html()),
             model: topMenuModel,
             events: {
-                "dblclick td": "edit"
+                "click a": "clickMenu"
             },
             initialize: function() {
                 this.model.bind("change", this.render, this);
@@ -336,7 +336,8 @@ define("topMenu", function(require) {
             render: function() {
                 $(this.el).html(this.template(this.model.toJSON()));
                 return this;
-            }
+            },
+            clickMenu: function() {}
         });
         var topMenuView = new TopMenuView();
     });

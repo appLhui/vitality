@@ -59,7 +59,6 @@ module.exports = function (grunt) {
             plugin: {
                 files: ['./src/plug-in/**/*.js'],
                 tasks: [ 'copy:plugin', 'combo:modules']
-
             },
             modules: {
                 files: ['./src/modules/base_js/**/*.js'],
