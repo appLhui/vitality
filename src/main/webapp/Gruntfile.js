@@ -67,6 +67,10 @@ module.exports = function (grunt) {
             coffee: {
                 files: ['./src/modules/coffee/**/*.coffee'],
                 tasks: ['coffee', 'combo:modules']
+            },
+            jade:{
+                files: ['./src/jade/**/*.jade'],
+                tasks: ['jade']
             }
         },
         jshint: {
@@ -117,6 +121,19 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+        },
+        jade: {
+            all: {
+                files: [
+                    {
+                        expand: true,
+                        cwd: './src/jade',
+                        src: '**/*.jade',
+                        dest: './html',
+                        ext: '.html'
+                    }
+                ]
+            }
         }
     });
 
@@ -135,12 +152,13 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-clean');     //清除文件
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
+    grunt.loadNpmTasks('grunt-contrib-jade');
 
+//    grunt.registerTask('default', ['']);
+    grunt.registerTask('default', ['clean','jade', 'imagemin', 'copy', 'concat', 'coffee', 'combo', 'watch']);   //默认的任务链
 
-    grunt.registerTask('default', ['clean', 'imagemin', 'copy', 'concat', 'coffee', 'combo', 'watch']);   //默认的任务链
+    grunt.registerTask('develop', ['clean', 'jade','imagemin', 'jshint:all', 'copy', 'concat', 'coffee', 'combo']);   //开发版的任务链
 
-    grunt.registerTask('develop', ['clean', 'imagemin', 'jshint:all', 'copy', 'concat', 'coffee', 'combo']);   //开发版的任务链
-
-    grunt.registerTask('release', ['clean', 'imagemin', 'jshint:all', 'copy', 'concat', 'coffee', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
+    grunt.registerTask('release', ['clean','jade', 'imagemin', 'jshint:all', 'copy', 'concat', 'coffee', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
 
 };

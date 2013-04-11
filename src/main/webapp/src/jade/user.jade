@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+html
+    head
+        meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
+        link(rel='stylesheet', href='../develop/css/main.css', type='text/css' )
+        script(type="text/javascript",src="../develop/js/base/jquery.js")
+        script(type="text/javascript",src="../develop/js/base/underscore.js")
+        script(type="text/javascript",src="../develop/js/base/backbone.js")
+        script(type="text/javascript",src="../develop/js/base/backbone.localStorage.js")
+        script(type="text/javascript",src="../develop/js/modules/user.js",data-main="user")
+    body
+        include topMenu
+        table#userTable.table.table-bordered.datagrid
+            thead
+                tr
+                    th
+                        span.datagrid-header-title 用户管理
+                        .datagrid-header-right
+                            .btn-group
+                                a.btn.search(href="#")
+                                    i.icon-search
+                                    搜索
+                                a.btn.dropdown-toggle(data-toggle="dropdown",href="#")
+                                    span.caret
+                                ul.dropdown-menu
+                                    li
+                                        a.modify(href="#")
+                                            i.icon-pencil
+                                            修改
+                                    li
+                                        a.delete(href="#")
+                                            i.icon-trash
+                                            删除
+                                    li.divider
+                                    li
+                                        a.add(href="#")
+                                            i.icon-plus
+                                            添加
+            tfoot
+                tr
+                    th
+                        .datagrid-footer-left.hide
+                            .grid-controls 第
+                                span.grid-start.text-info -
+                                span.grid-end.text-info 条 共
+                                span.grid-count.text-info 条 每页
+                                select.grid-pagesize
+                                    option 10
+                                    option 20
+                                    option 50
+                                    option 100
+                        .datagrid-footer-right.hide
+                            .grid-pager
+                                button.but.grid-prevpage
+                                    i.icon-chevron-left
+                                span 当前第
+                                .input-append.dropdown.combobox(style="width: 97px;")
+                                    input.span8(type="text")
+                                    button.btn(data-toggle="dropdown")
+                                        i.caret
+                                    ul.dropdown-menu
+                                span 页 一共
+                                    span.grid-pages
+                                页
+                                button.btn.grid-nextpage
+                                    i.icon-chevron-right
+
+        //＊模糊查询过滤部分 /
+        .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
+            form.form-horizontal
+                .modal-header
+                    button.close(type="button",data-dismiss="modal",aria-hidden="true")×
+                    h4 搜索
+                .modal-body
+                .modal-footer
+                    button.btn(data-dismiss="modal",aria-hidden="true") 取消
+                    button.btn.btn-primary(type="submit") 搜索
+
+        //增删改查部分/
+        .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
+            form.form-horizontal
+                .modal-header
+                    button.close(type="button",data-dismiss="modal",aria-hidden="true")×
+                    h4 操作
+                .modal-body
+                .modal-footer
+                    button.btn(data-dismiss="modal",aria-hidden="true") 取消
+                    button.btn.btn-primary(type="submit") 保存
+

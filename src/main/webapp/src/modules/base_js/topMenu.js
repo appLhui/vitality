@@ -5,17 +5,16 @@
  * Time: 下午1:49
  * To change this template use File | Settings | File Templates.
  */
-define(function (require) {
+define(function (require,exports,module) {
 
     require('plug-in/collapse');
     require('plug-in/dropdown');
+    require('plug-in/datagrid');
 
 
-    $(document).ready(function () {
-
-
+    exports.init=function(){
         var TopMenuModel = Backbone.Model.extend({
-            url: '/vitality/WebContent/json/topMenu.json',
+            url: '../json/topMenu.json',
             defaults: {
                 suc: true,
                 errorMsg: null,
@@ -46,7 +45,5 @@ define(function (require) {
         });
 
         var topMenuView = new TopMenuView();
-
-
-    });
+    };
 });
