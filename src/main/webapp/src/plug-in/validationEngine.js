@@ -424,7 +424,7 @@ define(function(require, exports, module) {
             _validateFormWithAjax: function(form, options) {
 
                 var data = form.serialize();
-                var type = (options.ajaxFormValidationMethod) ? options.ajaxFormValidationMethod : "GET";
+                var type = $(form).attr('method') ? $(form).attr('method'):options.ajaxFormValidationMethod;
                 var url = (options.ajaxFormValidationURL) ? options.ajaxFormValidationURL : form.attr("action");
                 var dataType = (options.dataType) ? options.dataType : "json";
                 $.ajax({

@@ -17,25 +17,42 @@ define(function (require) {
         $('#userTable').datagrid({
             dataSource : {
                 columns : [ {
-                    property : 'poster_id',
-                    label : '编号',
+                    property : 'customerId',
+                    label : '客户编号',
                     sortable : true
                 }, {
-                    property : 'poster_title',
-                    label : '标题',
+                    property : 'customerName',
+                    label : '客户名称',
                     sortable : true
                 }, {
-                    property : 'create_date',
-                    label : '创建时间',
-                    sortable : true,
-                    filter : function(v) {
-                        return new Date(v).format("yyyy-MM-dd");
-                    }
-                } ],
+                    property : 'address',
+                    label : '地址',
+                    sortable : true
+                }, {
+                    property : 'linkman',
+                    label : '联系人',
+                    sortable : true
+                }, {
+                    property : 'postCode',
+                    label : '邮编',
+                    sortable : true
+                }, {
+                    property : 'phone',
+                    label : '电话',
+                    sortable : true
+                }, {
+                    property : 'email',
+                    label : '邮件',
+                    sortable : true
+                }, {
+                    property : 'cityName',
+                    label : '城市',
+                    sortable : true
+                }  ],
                 delay : 250
             },
-            url : '/posterController/getPageData',
-            key : 'poster_id',
+            url : '../customer/users',
+            key : 'customerId',
             beforeFormShow : function() {
             },
             reloadForm : function() {

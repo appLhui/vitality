@@ -1059,7 +1059,7 @@ define("plug-in/validationEngine", function(require, exports, module) {
              */
             _validateFormWithAjax: function(form, options) {
                 var data = form.serialize();
-                var type = options.ajaxFormValidationMethod ? options.ajaxFormValidationMethod : "GET";
+                var type = $(form).attr("method") ? $(form).attr("method") : options.ajaxFormValidationMethod;
                 var url = options.ajaxFormValidationURL ? options.ajaxFormValidationURL : form.attr("action");
                 var dataType = options.dataType ? options.dataType : "json";
                 $.ajax({
@@ -2575,6 +2575,7 @@ define("plug-in/datagrid", function(require, exports, module) {
             action: this.options.url
         });
         this.$searchForm.validationEngine({
+            ajaxFormValidationMethod: "GET",
             onAjaxFormComplete: $.proxy(this.renderHtml, this)
         });
         this.$operateForm.append('<input type="hidden" name="' + this.options.key + '" >');
@@ -2629,12 +2630,32 @@ define("plug-in/datagrid", function(require, exports, module) {
             this.$tbody.html(this.placeholderRowHTML(this.options.loadingHTML));
             this.$footerchildren.hide();
             $.ajax({
-                type: "POST",
+                type: "GET",
                 url: this.options.url,
                 dataType: "json",
                 data: this.options.dataOptions,
                 success: $.proxy(this.renderHtml, this)
             });
+        },
+        reloadForm: function() {
+            var $tr = this.$element.find("tbody tr.info");
+            if ($tr.length) {
+                var data = {};
+                data[this.options.key] = $tr.find('td[data-property="' + this.options.key + '"]').html();
+                this.$operateForm.find('input[name="' + this.options.key + '"]').attr({
+                    value: data[this.options.key]
+                });
+                $.ajax({
+                    type: "GET",
+                    url: this.options.url + "/" + data[this.options.key],
+                    data: data,
+                    dataType: "json",
+                    success: $.proxy(this.options.reloadForm, this.$operateForm)
+                });
+            } else {
+                this.$element.before('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误提示!</strong>请先选中一列数据!</div>');
+                return true;
+            }
         },
         renderHtml: function() {
             var data = {};
@@ -2733,47 +2754,31 @@ define("plug-in/datagrid", function(require, exports, module) {
             this.$operateForm.validationEngine("hideAll");
             this.$operateForm[0].reset();
             $.proxy(this.options.beforeFormShow, this.$operateForm)();
+            var _id = this.$element.find("tbody tr.info").find('td[data-property="' + this.options.key + '"]').html();
             if ($(e.currentTarget).hasClass("add")) {
                 $title.html("添加操作");
                 this.$operateForm.attr({
-                    action: this.options.url + "/get"
+                    action: this.options.url,
+                    method: "PUT"
                 });
             } else if ($(e.currentTarget).hasClass("delete")) {
                 if (this.reloadForm()) return false;
                 $title.html("删除操作");
                 this.$operateForm.attr({
-                    action: this.options.url + "/delete"
+                    action: this.options.url + "/" + _id,
+                    method: "DELETE"
                 });
             } else if ($(e.currentTarget).hasClass("modify") || $(e.currentTarget).is("tr")) {
                 if (this.reloadForm()) return false;
                 $title.html("修改操作");
                 this.$operateForm.attr({
-                    action: this.options.url + "/post"
+                    action: this.options.url + "/" + _id,
+                    method: "POST"
                 });
             }
             this.$search.parent("div").removeClass("open");
             $modal.modal("show");
             return false;
-        },
-        reloadForm: function() {
-            var $tr = this.$element.find("tbody tr.info");
-            if ($tr.length) {
-                var data = {};
-                data[this.options.key] = $tr.find('td[data-property="' + this.options.key + '"]').html();
-                this.$operateForm.find('input[name="' + this.options.key + '"]').attr({
-                    value: data[this.options.key]
-                });
-                $.ajax({
-                    type: "post",
-                    url: this.options.url + "/reload",
-                    data: data,
-                    dataType: "json",
-                    success: $.proxy(this.options.reloadForm, this.$operateForm)
-                });
-            } else {
-                this.$element.before('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误提示!</strong>请先选中一列数据!</div>');
-                return true;
-            }
         },
         submitForm: function() {
             var data = arguments[2];
