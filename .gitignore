@@ -1,3 +1,7 @@
+.DS_Store
 .settings/
 .project
+src/main/webapp/.idea/
 src/main/webapp/WEB-INF/lib/*.jar
+src/main/webapp/WEB-INF/classes
+**/*.class
