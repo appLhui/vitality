@@ -42,5 +42,9 @@ public class CustomerDaoImpl extends BaseHibernateDao<CustomerModel, Integer> im
         		customerNameLikeStr
         };
     }
+    
+    public List<CustomerModel> getCustomerListByCompanyId(Long companyId){
+    	return this.list(HQL_LIST+" where companyId=? order by customerName ", companyId);
+    }
 
 }

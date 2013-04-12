@@ -11,5 +11,7 @@ public interface CustomerDao extends IBaseDao<CustomerModel, Integer> {
     List<CustomerModel> query(int pn, int pageSize, CustomerQueryModel command);
 
     int countQuery(CustomerQueryModel command);
+    
+    public List<CustomerModel> getCustomerListByCompanyId(Long companyId);
 
 }

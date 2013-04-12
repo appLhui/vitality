@@ -1,0 +1,21 @@
+[{
+    "id" : "1001",
+    "name" : "构建高性能Web站点",
+    "price" : "56.30"
+}, {
+    "id" : "1002",
+    "name" : "深入分析Java Web技术内幕",
+    "price" : "51.80"
+}, {
+    "id" : "1003",
+    "name" : "编写高质量代码:Web前端开发修炼之道",
+    "price" : "36.80"
+}, {
+    "id" : "1004",
+    "name" : "基于MVC的JavaScript Web富应用开发",
+    "price" : "42.50"
+}, {
+    "id" : "1005",
+    "name" : "RESTful Web Services Cookbook中文版",
+    "price" : "44.30"
+}]
