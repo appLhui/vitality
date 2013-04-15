@@ -38,9 +38,7 @@ import com.visionet.demo.service.CustomerService;
 public class CustomerController extends BaseController{
 	protected static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 	
-	
 
-	
     @Autowired
     @Qualifier("CustomerService")
     private CustomerService customerService;

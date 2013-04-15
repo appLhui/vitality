@@ -2579,7 +2579,7 @@ define("plug-in/datagrid", function(require, exports, module) {
             ajaxFormValidationMethod: "GET",
             onAjaxFormComplete: $.proxy(this.renderHtml, this)
         });
-        this.$operateForm.append('<input type="hidden" name="' + this.options.key + '" >');
+        this.$operateForm.append('<input type="hidden" name="' + this.options.key + '" value="0">');
         this.$operateForm.validationEngine({
             onAjaxFormComplete: $.proxy(this.submitForm, this),
             onBeforeAjaxFormValidation: $.proxy(this.options.beforeFormSubmit, this.$operateForm)
