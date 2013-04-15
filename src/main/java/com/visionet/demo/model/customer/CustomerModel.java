@@ -34,7 +34,7 @@ public class CustomerModel extends AbstractModel {
     @Column(name = "CUSTOMER_ID", nullable = false)
     private int customerId;	//客户ID    
     
-    @Column(name = "CUSTOMER_NAME", nullable = false)
+    @Column(name = "CUSTOMER_NAME")
 	private String customerName;    //客户名称    
     
     @Column(name = "ADDRESS")

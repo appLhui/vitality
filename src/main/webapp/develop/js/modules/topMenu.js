@@ -2947,7 +2947,7 @@ define("plug-in/validationEngine", function(require, exports, module) {
  * Time: 下午1:49
  * To change this template use File | Settings | File Templates.
  */
-define("topMenu", function(require, exports, module) {
+define("topMenu", function(require, exports) {
     require("plug-in/collapse");
     require("plug-in/dropdown");
     require("plug-in/datagrid");

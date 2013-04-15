@@ -5,7 +5,7 @@
  * Time: 下午1:49
  * To change this template use File | Settings | File Templates.
  */
-define(function (require,exports,module) {
+define(function (require,exports) {
 
     require('plug-in/collapse');
     require('plug-in/dropdown');

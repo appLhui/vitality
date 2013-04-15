@@ -2947,7 +2947,7 @@ define("plug-in/validationEngine", function(require, exports, module) {
  * Time: 下午1:49
  * To change this template use File | Settings | File Templates.
  */
-define("topMenu", function(require, exports, module) {
+define("topMenu", function(require, exports) {
     require("plug-in/collapse");
     require("plug-in/dropdown");
     require("plug-in/datagrid");
@@ -2981,19 +2981,13 @@ define("topMenu", function(require, exports, module) {
         var topMenuView = new TopMenuView();
     };
 });;
-/**
- * Created with JetBrains WebStorm.
- * User: lihui
- * Date: 13-4-11
- * Time: 下午7:57
- * To change this template use File | Settings | File Templates.
- */
-define("user", function(require) {
-    var topMenu = require("topMenu");
-    $(document).ready(function() {
-        topMenu.init();
-        $("#userTable").datagrid({
-            dataSource: {
+(function() {
+    define("user", function(require, exports) {
+        var topMenu;
+        topMenu = require("topMenu");
+        return $(function() {
+            var AppView, dataSource;
+            dataSource = {
                 columns: [ {
                     property: "customerId",
                     label: "客户编号",
@@ -3020,20 +3014,32 @@ define("user", function(require) {
                     sortable: true
                 }, {
                     property: "email",
-                    label: "邮件",
+                    label: "邮箱",
                     sortable: true
                 }, {
                     property: "cityName",
                     label: "城市",
                     sortable: true
-                } ],
-                delay: 250
-            },
-            url: "../customer/users",
-            key: "customerId",
-            beforeFormShow: function() {},
-            reloadForm: function() {},
-            beforeFormSubmit: function() {}
+                } ]
+            };
+            AppView = Backbone.View.extend({
+                el: $("#userTable"),
+                initialize: function() {
+                    topMenu.init();
+                    return this.render();
+                },
+                render: function() {
+                    return $(this.el).find("table").datagrid({
+                        dataSource: dataSource,
+                        url: "../customer/users",
+                        key: "customerId",
+                        beforeFormShow: function() {},
+                        reloadForm: function() {},
+                        beforeFormSubmit: function() {}
+                    }, this);
+                }
+            });
+            return new AppView();
         });
     });
-});
+}).call(this);

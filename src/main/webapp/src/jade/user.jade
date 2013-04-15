@@ -9,112 +9,111 @@ html
         script(type="text/javascript",src="../develop/js/base/backbone.localStorage.js")
         script(type="text/javascript",src="../develop/js/modules/user.js",data-main="user")
     body
-        include topMenu
-        table#userTable.table.table-bordered.datagrid
-            thead
-                tr
-                    th
-                        span.datagrid-header-title 用户管理
-                        .datagrid-header-right
-                            .btn-group
-                                a.btn.search(href="#")
-                                    i.icon-search
-                                    搜索
-                                a.btn.dropdown-toggle(data-toggle="dropdown",href="#")
-                                    span.caret
-                                ul.dropdown-menu
-                                    li
-                                        a.modify(href="#")
-                                            i.icon-pencil
-                                            修改
-                                    li
-                                        a.delete(href="#")
-                                            i.icon-trash
-                                            删除
-                                    li.divider
-                                    li
-                                        a.add(href="#")
-                                            i.icon-plus
-                                            添加
-            tfoot
-                tr
-                    th
-                        .datagrid-footer-left
-                            .grid-controls 第
-                                span.grid-start.text-info
-                                span -
-                                span.grid-end.text-info
-                                span 条 共
-                                span.grid-count.text-info
-                                span条 每页
-                                select.grid-pagesize
-                                    option 10
-                                    option 20
-                                    option 50
-                                    option 100
-                        .datagrid-footer-right
-                            .grid-pager
-                                button.btn.grid-prevpage
-                                    i.icon-chevron-left
-                                span 当前第
-                                .input-append.dropdown.combobox(style="width: 97px;")
-                                    input.span1(type="text")
-                                    button.btn(data-toggle="dropdown")
-                                        i.caret
+        .container#userTable
+            include topMenu
+            table.table.table-bordered.datagrid
+                thead
+                    tr
+                        th
+                            span.datagrid-header-title 用户管理
+                            .datagrid-header-right
+                                .btn-group
+                                    a.btn.search(href="#")
+                                        i.icon-search
+                                        搜索
+                                    a.btn.dropdown-toggle(data-toggle="dropdown",href="#")
+                                        span.caret
                                     ul.dropdown-menu
-                                span 页 一共
-                                    span.grid-pages
-                                span 页
-                                button.btn.grid-nextpage
-                                    i.icon-chevron-right
+                                        li
+                                            a.modify(href="#")
+                                                i.icon-pencil
+                                                修改
+                                        li
+                                            a.delete(href="#")
+                                                i.icon-trash
+                                                删除
+                                        li.divider
+                                        li
+                                            a.add(href="#")
+                                                i.icon-plus
+                                                添加
+                tfoot
+                    tr
+                        th
+                            .datagrid-footer-left
+                                .grid-controls 第
+                                    span.grid-start.text-info
+                                    span -
+                                    span.grid-end.text-info
+                                    span 条 共
+                                    span.grid-count.text-info
+                                    span条 每页
+                                    select.grid-pagesize
+                                        option 10
+                                        option 20
+                                        option 50
+                                        option 100
+                            .datagrid-footer-right
+                                .grid-pager
+                                    button.btn.grid-prevpage
+                                        i.icon-chevron-left
+                                    span 当前第
+                                    .input-append.dropdown.combobox(style="width: 97px;")
+                                        input.span1(type="text")
+                                        button.btn(data-toggle="dropdown")
+                                            i.caret
+                                        ul.dropdown-menu
+                                    span 页 一共
+                                        span.grid-pages
+                                    span 页
+                                    button.btn.grid-nextpage
+                                        i.icon-chevron-right
 
-        //＊模糊查询过滤部分 /
-        .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
-            form.form-horizontal
-                .modal-header
-                    button.close(type="button",data-dismiss="modal",aria-hidden="true")×
-                    h4 搜索
-                .modal-body
-                .modal-footer
-                    button.btn(data-dismiss="modal",aria-hidden="true") 取消
-                    button.btn.btn-primary(type="submit") 搜索
+            .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
+                form.form-horizontal
+                    .modal-header
+                        button.close(type="button",data-dismiss="modal",aria-hidden="true")×
+                        h4 搜索
+                    .modal-body
+                    .modal-footer
+                        button.btn(data-dismiss="modal",aria-hidden="true") 取消
+                        button.btn.btn-primary(type="submit") 搜索
 
-        //增删改查部分/
-        .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
-            form.form-horizontal
-                .modal-header
-                    button.close(type="button",data-dismiss="modal",aria-hidden="true")×
-                    h4 操作
-                .modal-body
-                    .control-group
-                        label.control-label 客户名称
-                        .controls
-                            input(type="text",name="customerName",class="validate[required]")
-                    .control-group
-                        label.control-label 地址
-                        .controls
-                            input(type="text",name="address",class="validate[required]")
-                    .control-group
-                        label.control-label 联系人
-                        .controls
-                            input(type="text",name="linkman",class="validate[required]")
-                    .control-group
-                        label.control-label 邮编
-                        .controls
-                            input(type="text",name="postCode",class="validate[required]")
-                    .control-group
-                        label.control-label 电话
-                        .controls
-                            input(type="text",name="phone",class="validate[required,custom[phone]]")
-                    .control-group
-                        label.control-label 电子邮件
-                        .controls
-                            input(type="text",name="email",class="validate[custom[email]]")
-                    .control-group
-                        label.control-label 城市
-                        .controls
-                            input(type="text",name="cityName",class="validate[required]")
-                .modal-footer
-                    button.btn(data-dismiss="modal",aria-hidden="true") 取消
-                    button.btn.btn-primary(type="submit") 保存
+            .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
+                form.form-horizontal
+                    .modal-header
+                        button.close(type="button",data-dismiss="modal",aria-hidden="true")×
+                        h4 操作
+                    .modal-body
+                        .control-group
+                            label.control-label 客户名称
+                            .controls
+                                input(type="text",name="customerName",class="validate[required]")
+                        .control-group
+                            label.control-label 地址
+                            .controls
+                                input(type="text",name="address",class="validate[required]")
+                        .control-group
+                            label.control-label 联系人
+                            .controls
+                                input(type="text",name="linkman",class="validate[required]")
+                        .control-group
+                            label.control-label 邮编
+                            .controls
+                                input(type="text",name="postCode",class="validate[required]")
+                        .control-group
+                            label.control-label 电话
+                            .controls
+                                input(type="text",name="phone",class="validate[required,custom[phone]]")
+                        .control-group
+                            label.control-label 电子邮件
+                            .controls
+                                input(type="text",name="email",class="validate[custom[email]]")
+                        .control-group
+                            label.control-label 城市
+                            .controls
+                                input(type="text",name="cityName",class="validate[required]")
+                    .modal-footer
+                        button.btn(data-dismiss="modal",aria-hidden="true") 取消
+                        button.btn.btn-primary(type="submit") 保存
 

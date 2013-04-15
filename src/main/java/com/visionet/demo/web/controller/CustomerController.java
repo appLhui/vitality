@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.visionet.common.Constants;
+import com.visionet.common.model.dataform.Result;
 import com.visionet.common.model.datagrid.DataOptions;
 import com.visionet.common.model.datagrid.ReGridData;
 import com.visionet.common.pagination.Page;
@@ -191,6 +192,20 @@ public class CustomerController extends BaseController{
           return new ReGridData(true,3,3,1,1,1,page.getItems());
     }
 
-    
+    @RequestMapping(value = "/users", method = {RequestMethod.PUT})
+    @ResponseBody
+    public Result<CustomerModel> addUsers(Model model, @ModelAttribute("command") @Valid CustomerModel command, BindingResult result) {
+    	 Result<CustomerModel> re= new Result<CustomerModel>();
+        //如果有验证错误 返回到form页面
+        if(result.hasErrors()) {
+        	re.setSuc(false);
+        	re.setErrorMessage("验证错误");
+            return re;
+        }
+        command.setCompanyId(0L);
+        customerService.save(command);
+        
+        return re;
+    }
     
 }
