@@ -1527,8 +1527,9 @@ define("plug-in/validationEngine", function(require, exports, module) {
              */
             _validateFormWithAjax: function(form, options) {
                 var data = form.serialize();
-                var type = $(form).attr("method") ? $(form).attr("method") : options.ajaxFormValidationMethod;
+                var type = options.ajaxFormValidationMethod ? options.ajaxFormValidationMethod : "get";
                 var url = options.ajaxFormValidationURL ? options.ajaxFormValidationURL : form.attr("action");
+                if (data) data = "_method=" + $(form).attr("method") + "&" + data;
                 var dataType = options.dataType ? options.dataType : "json";
                 $.ajax({
                     type: type,
@@ -2940,47 +2941,41 @@ define("plug-in/validationEngine", function(require, exports, module) {
         });
     })(jQuery);
 });;
-/**
- * Created with JetBrains WebStorm.
- * User: lihui
- * Date: 13-3-26
- * Time: 下午1:49
- * To change this template use File | Settings | File Templates.
- */
-define("topMenu", function(require, exports) {
-    require("plug-in/collapse");
-    require("plug-in/dropdown");
-    require("plug-in/datagrid");
-    exports.init = function() {
-        var TopMenuModel = Backbone.Model.extend({
-            url: "../json/topMenu.json",
-            defaults: {
-                suc: true,
-                errorMsg: null,
-                data: {}
-            }
-        });
-        var topMenuModel = new TopMenuModel();
-        var TopMenuView = Backbone.View.extend({
-            el: $("#topMenuUl"),
-            template: _.template($("#topMenu").html()),
-            model: topMenuModel,
-            events: {
-                "click a": "clickMenu"
-            },
-            initialize: function() {
-                this.model.bind("change", this.render, this);
-                this.model.fetch();
-            },
-            render: function() {
-                $(this.el).html(this.template(this.model.toJSON()));
-                return this;
-            },
-            clickMenu: function() {}
-        });
-        var topMenuView = new TopMenuView();
-    };
-});;
+(function() {
+    define("topMenu", function(require, exports) {
+        require("plug-in/collapse");
+        require("plug-in/dropdown");
+        require("plug-in/datagrid");
+        exports.init = function() {
+            var TopMenuModel, TopMenuView, topMenuModel, topMenuView;
+            TopMenuModel = Backbone.Model.extend({
+                url: "../json/topMenu.json",
+                defaults: {
+                    suc: true,
+                    errorMsg: null,
+                    data: {}
+                }
+            });
+            topMenuModel = new TopMenuModel();
+            TopMenuView = Backbone.View.extend({
+                el: $("#topMenuUl"),
+                template: _.template($("#topMenu").html()),
+                model: topMenuModel,
+                events: {},
+                initialize: function() {
+                    this.model.bind("change", this.render, this);
+                    return this.model.fetch();
+                },
+                render: function() {
+                    $(this.el).html(this.template(this.model.toJSON()));
+                    return this;
+                }
+            });
+            return topMenuView = new TopMenuView();
+        };
+        return this.exports;
+    });
+}).call(this);;
 (function() {
     define("user", function(require, exports) {
         var topMenu;

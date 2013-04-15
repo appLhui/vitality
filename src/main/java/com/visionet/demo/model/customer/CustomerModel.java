@@ -32,7 +32,7 @@ public class CustomerModel extends AbstractModel {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "CUSTOMER_ID", nullable = false)
-    private int customerId;	//客户ID    
+    private int customerId=0;	//客户ID    
     
     @Column(name = "CUSTOMER_NAME")
 	private String customerName;    //客户名称    

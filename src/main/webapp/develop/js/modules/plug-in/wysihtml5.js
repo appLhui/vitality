@@ -3260,8 +3260,9 @@ define("plug-in/validationEngine", function(require, exports, module) {
              */
             _validateFormWithAjax: function(form, options) {
                 var data = form.serialize();
-                var type = $(form).attr("method") ? $(form).attr("method") : options.ajaxFormValidationMethod;
+                var type = options.ajaxFormValidationMethod ? options.ajaxFormValidationMethod : "get";
                 var url = options.ajaxFormValidationURL ? options.ajaxFormValidationURL : form.attr("action");
+                if (data) data = "_method=" + $(form).attr("method") + "&" + data;
                 var dataType = options.dataType ? options.dataType : "json";
                 $.ajax({
                     type: type,

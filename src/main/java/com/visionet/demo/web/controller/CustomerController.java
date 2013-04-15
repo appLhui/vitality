@@ -38,6 +38,9 @@ import com.visionet.demo.service.CustomerService;
 public class CustomerController extends BaseController{
 	protected static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 	
+	
+
+	
     @Autowired
     @Qualifier("CustomerService")
     private CustomerService customerService;
@@ -194,7 +197,7 @@ public class CustomerController extends BaseController{
 
     @RequestMapping(value = "/users", method = {RequestMethod.PUT})
     @ResponseBody
-    public Result<CustomerModel> addUsers(Model model, @ModelAttribute("command") @Valid CustomerModel command, BindingResult result) {
+    public Result<CustomerModel> addUsers(Model model, @ModelAttribute("command") @Valid CustomerModel command,CustomerModel customerModel,BindingResult result) {
     	 Result<CustomerModel> re= new Result<CustomerModel>();
         //如果有验证错误 返回到form页面
         if(result.hasErrors()) {
