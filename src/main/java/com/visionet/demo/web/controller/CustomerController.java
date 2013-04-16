@@ -1,35 +1,24 @@
 package com.visionet.demo.web.controller;
 
-import java.util.Date;
+import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.validation.Valid;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.ServletRequestUtils;
-import org.springframework.web.bind.WebDataBinder;
-import org.springframework.web.bind.annotation.InitBinder;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
-import com.visionet.common.Constants;
 import com.visionet.common.model.dataform.Result;
 import com.visionet.common.model.datagrid.DataOptions;
 import com.visionet.common.model.datagrid.ReGridData;
-import com.visionet.common.pagination.Page;
-import com.visionet.common.web.support.editor.DateEditor;
 import com.visionet.common.web.util.BaseController;
 import com.visionet.demo.model.customer.CustomerModel;
-import com.visionet.demo.model.customer.CustomerQueryModel;
 import com.visionet.demo.service.CustomerService;
 
 
@@ -38,7 +27,9 @@ import com.visionet.demo.service.CustomerService;
 public class CustomerController extends BaseController{
 	protected static final Logger LOGGER = LoggerFactory.getLogger(CustomerController.class);
 	
-	
+	@Autowired
+    @Qualifier("CustomerService")
+    private CustomerService customerService;
 	
 	
 	
@@ -47,41 +38,49 @@ public class CustomerController extends BaseController{
     @ResponseBody
     public ReGridData getUsers(DataOptions options, HttpServletRequest request,CustomerModel remodel) {
      	
-    	ReGridData reGridData=new ReGridData();
+    	
      	  //TODO 做全部信息的展示 包括 分页 模糊查询 功能
-     	
-          return reGridData;
+     	       
+        return customerService.getCustomerListByPage(customerService.listAll(),options);
     }
 
     @RequestMapping(value = "/users/{id}", method = {RequestMethod.GET})
     @ResponseBody
-    public Result<CustomerModel> getUsersById(CustomerModel command,CustomerModel customerModel,@PathVariable("id")Integer id) {
-    	 Result<CustomerModel> result= new Result<CustomerModel>();
+    public Result<CustomerModel> getUsersById(CustomerModel customerModel,@PathVariable("id")Integer id) {
+    	Result<CustomerModel> result= new Result<CustomerModel>();
          //TODO 根据ID获取 某条 信息 
+        
+        result.setData(customerService.get(id)); 
         return result;
     } 
     
     @RequestMapping(value = "/users", method = {RequestMethod.PUT})
     @ResponseBody
-    public Result<CustomerModel> addUsers(CustomerModel command,CustomerModel customerModel) {
-    	 Result<CustomerModel> result= new Result<CustomerModel>();
+    public Result<CustomerModel> addUsers(CustomerModel customerModel) {
+    	Result<CustomerModel> result= new Result<CustomerModel>();
          //TODO 制作添加功能 
+    	result.setData(null);
+    	customerModel.setCompanyId(0L);
+    	customerService.save(customerModel);
         return result;
     }
     
     @RequestMapping(value = "/users/{id}", method = {RequestMethod.POST})
     @ResponseBody
-    public Result<CustomerModel> updateUsersById(CustomerModel command,CustomerModel customerModel,@PathVariable("id")Integer id) {
-    	 Result<CustomerModel> result= new Result<CustomerModel>();
+    public Result<CustomerModel> updateUsersById(CustomerModel customerModel,@PathVariable("id")Integer id) {
+    	Result<CustomerModel> result= new Result<CustomerModel>();
          //TODO 根据ID修改 某条 信息 
+    	result.setData(null);
+    	customerService.update(customerModel);
         return result;
     } 
     
     @RequestMapping(value = "/users/{id}", method = {RequestMethod.DELETE})
     @ResponseBody
-    public Result<CustomerModel> deleteUsersById(CustomerModel command,CustomerModel customerModel,@PathVariable("id")Integer id) {
-    	 Result<CustomerModel> result= new Result<CustomerModel>();
+    public Result<CustomerModel> deleteUsersById(CustomerModel customerModel,@PathVariable("id")Integer id) {
+    	Result<CustomerModel> result= new Result<CustomerModel>();
          //TODO 根据ID删除 某条 信息 
+    	
         return result;
     } 
 

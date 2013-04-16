@@ -9,6 +9,8 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
 import com.visionet.common.dao.IBaseDao;
+import com.visionet.common.model.datagrid.DataOptions;
+import com.visionet.common.model.datagrid.ReGridData;
 import com.visionet.common.pagination.Page;
 import com.visionet.common.pagination.PageUtil;
 import com.visionet.common.service.impl.BaseService;
@@ -49,6 +51,21 @@ public class CustomerServiceImpl extends BaseService<CustomerModel, Integer> imp
     public List<CustomerModel> getCustomerListByCompanyId(Long companyId){
     	return customerDao.getCustomerListByCompanyId(companyId);
     }
+
+
+
+	@Override
+	public ReGridData getCustomerListByPage(List<CustomerModel> list,
+			DataOptions dataOptions) {
+		// TODO Auto-generated method stub
+		ReGridData reGridData=new ReGridData();
+		reGridData.setData(list);
+        reGridData.setCount(list.size());
+        reGridData.setEnd(list.size());
+        reGridData.setPage(dataOptions.getPageIndex()+1);
+        reGridData.setPages(list.size()/dataOptions.getPageSize()+1);
+		return reGridData;
+	}
 
    
 }
