@@ -71,11 +71,39 @@ html
                                         i.icon-chevron-right
 
             .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
-                form.form-horizontal
+                form.form-horizontal(method="GET")
                     .modal-header
                         button.close(type="button",data-dismiss="modal",aria-hidden="true")×
                         h4 #{search}
                     .modal-body
+                        .control-group
+                            label.control-label 客户名称
+                            .controls
+                                input(type="text",name="customerName")
+                        .control-group
+                            label.control-label 地址
+                            .controls
+                                input(type="text",name="address")
+                        .control-group
+                            label.control-label 联系人
+                            .controls
+                                input(type="text",name="linkman")
+                        .control-group
+                            label.control-label 邮编
+                            .controls
+                                input(type="text",name="postCode")
+                        .control-group
+                            label.control-label 电话
+                            .controls
+                                input(type="text",name="phone",class="validate[custom[phone]]")
+                        .control-group
+                            label.control-label 电子邮件
+                            .controls
+                                input(type="text",name="email",class="validate[custom[email]]")
+                        .control-group
+                            label.control-label 城市
+                            .controls
+                                input(type="text",name="cityName")
                     .modal-footer
                         button.btn(data-dismiss="modal",aria-hidden="true") #{cancel}
                         button.btn.btn-primary(type="submit") #{search}
