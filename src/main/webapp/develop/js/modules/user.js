@@ -2977,9 +2977,27 @@ define("plug-in/validationEngine", function(require, exports, module) {
     });
 }).call(this);;
 (function() {
+    define("user_method", function(require, exports) {
+        exports.reloadForm = function(respond) {
+            var key, value, _i, _len, _ref, _results;
+            if (respond.suc) {
+                _ref = respond.data;
+                _results = [];
+                for (value = _i = 0, _len = _ref.length; _i < _len; value = ++_i) {
+                    key = _ref[value];
+                    _results.push($(this).find('input[name="' + key + '"]').val(value));
+                }
+                return _results;
+            }
+        };
+        return this.exports;
+    });
+}).call(this);;
+(function() {
     define("user", function(require, exports) {
-        var topMenu;
+        var method, topMenu;
         topMenu = require("topMenu");
+        method = require("user_method");
         return $(function() {
             var AppView, dataSource;
             dataSource = {
@@ -3029,7 +3047,7 @@ define("plug-in/validationEngine", function(require, exports, module) {
                         url: "../customer/users",
                         key: "customerId",
                         beforeFormShow: function() {},
-                        reloadForm: function() {},
+                        reloadForm: method.reloadForm,
                         beforeFormSubmit: function() {}
                     }, this);
                 }

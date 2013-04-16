@@ -18,7 +18,7 @@ define (require, exports) ->
       model:topMenuModel
       events:{}
       initialize: ->
-        @.model.bind('change',this.render,this)
+        @.model.bind 'change',this.render,this
         @.model.fetch();
       render: ->
         $(@.el).html @.template @.model.toJSON()

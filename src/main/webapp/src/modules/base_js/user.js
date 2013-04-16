@@ -1,8 +1,9 @@
 (function() {
   define(function(require, exports) {
-    var topMenu;
+    var method, topMenu;
 
     topMenu = require('./topMenu');
+    method = require('./user_method');
     return $(function() {
       var AppView, dataSource;
 
@@ -55,7 +56,7 @@
             url: '../customer/users',
             key: 'customerId',
             beforeFormShow: function() {},
-            reloadForm: function() {},
+            reloadForm: method.reloadForm,
             beforeFormSubmit: function() {}
           }, this);
         }

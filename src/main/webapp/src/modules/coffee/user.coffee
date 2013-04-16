@@ -1,5 +1,6 @@
 define (require, exports) ->
   topMenu=require './topMenu'
+  method=require './user_method'
   $ ->
     dataSource=
       columns: [
@@ -47,7 +48,7 @@ define (require, exports) ->
           url: '../customer/users'
           key: 'customerId'
           beforeFormShow: ->
-          reloadForm: ->
+          reloadForm: method.reloadForm
           beforeFormSubmit: ->
           @
 

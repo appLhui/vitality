@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+include user_CN
 html
     head
         meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
@@ -15,28 +16,28 @@ html
                 thead
                     tr
                         th
-                            span.datagrid-header-title 用户管理
+                            span.datagrid-header-title #{title}
                             .datagrid-header-right
                                 .btn-group
                                     a.btn.search(href="#")
                                         i.icon-search
-                                        搜索
+                                        span #{topMenu.search}
                                     a.btn.dropdown-toggle(data-toggle="dropdown",href="#")
                                         span.caret
                                     ul.dropdown-menu
                                         li
                                             a.modify(href="#")
                                                 i.icon-pencil
-                                                修改
+                                                span #{topMenu.modify}
                                         li
                                             a.delete(href="#")
                                                 i.icon-trash
-                                                删除
+                                                span #{topMenu.remove}
                                         li.divider
                                         li
                                             a.add(href="#")
                                                 i.icon-plus
-                                                添加
+                                                span #{topMenu.add}
                 tfoot
                     tr
                         th
