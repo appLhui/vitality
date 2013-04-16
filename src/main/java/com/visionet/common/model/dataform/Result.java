@@ -13,7 +13,7 @@ public class Result<T> {
 
 	private boolean suc=true;
 	
-	private String errorMessage;
+	private String errorMsg;
 	
 	private T data;
 
@@ -34,15 +34,15 @@ public class Result<T> {
 	/**
 	 * @return the errorMessage
 	 */
-	public String getErrorMessage() {
-		return errorMessage;
+	public String getErrorMsg() {
+		return errorMsg;
 	}
 
 	/**
 	 * @param errorMessage the errorMessage to set
 	 */
-	public void setErrorMessage(String errorMessage) {
-		this.errorMessage = errorMessage;
+	public void setErrorMessage(String errorMsg) {
+		this.errorMsg = errorMsg;
 	}
 
 	/**
