@@ -18,12 +18,12 @@ define (require, exports) ->
       model:topMenuModel
       events:{}
       initialize: ->
-        @.model.bind 'change',this.render,this
-        @.model.fetch();
+        @model.bind 'change',@render,@
+        @model.fetch();
       render: ->
-        $(@.el).html @.template @.model.toJSON()
+        $(@el).html @template @model.toJSON()
         @
 
     topMenuView = new TopMenuView();
-  @.exports
+  @exports
 

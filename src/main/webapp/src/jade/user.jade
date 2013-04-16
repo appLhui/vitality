@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-include user_CN
+include CN
 html
     head
         meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
@@ -21,23 +21,23 @@ html
                                 .btn-group
                                     a.btn.search(href="#")
                                         i.icon-search
-                                        span #{topMenu.search}
+                                        span #{search}
                                     a.btn.dropdown-toggle(data-toggle="dropdown",href="#")
                                         span.caret
                                     ul.dropdown-menu
                                         li
                                             a.modify(href="#")
                                                 i.icon-pencil
-                                                span #{topMenu.modify}
+                                                span #{modify}
                                         li
                                             a.delete(href="#")
                                                 i.icon-trash
-                                                span #{topMenu.remove}
+                                                span #{remove}
                                         li.divider
                                         li
                                             a.add(href="#")
                                                 i.icon-plus
-                                                span #{topMenu.add}
+                                                span #{add}
                 tfoot
                     tr
                         th
@@ -74,17 +74,17 @@ html
                 form.form-horizontal
                     .modal-header
                         button.close(type="button",data-dismiss="modal",aria-hidden="true")×
-                        h4 搜索
+                        h4 #{search}
                     .modal-body
                     .modal-footer
-                        button.btn(data-dismiss="modal",aria-hidden="true") 取消
-                        button.btn.btn-primary(type="submit") 搜索
+                        button.btn(data-dismiss="modal",aria-hidden="true") #{cancel}
+                        button.btn.btn-primary(type="submit") #{search}
 
             .modal.hide.fade(tabindex="-1",role="dialog",aria-labelledby="myModalLabel",aria-hidden="true")
                 form.form-horizontal
                     .modal-header
                         button.close(type="button",data-dismiss="modal",aria-hidden="true")×
-                        h4 操作
+                        h4 #{manipulation}
                     .modal-body
                         .control-group
                             label.control-label 客户名称
@@ -115,6 +115,6 @@ html
                             .controls
                                 input(type="text",name="cityName",class="validate[required]")
                     .modal-footer
-                        button.btn(data-dismiss="modal",aria-hidden="true") 取消
-                        button.btn.btn-primary(type="submit") 保存
+                        button.btn(data-dismiss="modal",aria-hidden="true") #{cancel}
+                        button.btn.btn-primary(type="submit") #{save}
 
