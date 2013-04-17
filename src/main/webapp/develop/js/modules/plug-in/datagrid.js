@@ -2576,7 +2576,6 @@ define("plug-in/datagrid", function(require, exports, module) {
             action: this.options.url
         });
         this.$searchForm.validationEngine({
-            ajaxFormValidationMethod: "GET",
             onAjaxFormComplete: $.proxy(this.renderHtml, this)
         });
         this.$operateForm.append('<input type="hidden" name="' + this.options.key + '" value="0">');
@@ -2758,6 +2757,7 @@ define("plug-in/datagrid", function(require, exports, module) {
             var _id = this.$element.find("tbody tr.info").find('td[data-property="' + this.options.key + '"]').html();
             if ($(e.currentTarget).hasClass("add")) {
                 $title.html("添加操作");
+                $modal.find('button[type="submit"]').html("添加");
                 this.$operateForm.attr({
                     action: this.options.url,
                     method: "PUT"
@@ -2765,6 +2765,7 @@ define("plug-in/datagrid", function(require, exports, module) {
             } else if ($(e.currentTarget).hasClass("delete")) {
                 if (this.reloadForm()) return false;
                 $title.html("删除操作");
+                $modal.find('button[type="submit"]').html("删除");
                 this.$operateForm.attr({
                     action: this.options.url + "/" + _id,
                     method: "DELETE"
@@ -2772,6 +2773,7 @@ define("plug-in/datagrid", function(require, exports, module) {
             } else if ($(e.currentTarget).hasClass("modify") || $(e.currentTarget).is("tr")) {
                 if (this.reloadForm()) return false;
                 $title.html("修改操作");
+                $modal.find('button[type="submit"]').html("修改");
                 this.$operateForm.attr({
                     action: this.options.url + "/" + _id,
                     method: "POST"
