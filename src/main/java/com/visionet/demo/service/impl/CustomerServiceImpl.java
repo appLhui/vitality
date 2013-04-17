@@ -55,17 +55,38 @@ public class CustomerServiceImpl extends BaseService<CustomerModel, Integer> imp
 
 
 	@Override
-	public ReGridData getCustomerListByPage(List<CustomerModel> list,
-			DataOptions dataOptions) {
+	public ReGridData getCustomerListByPage(
+			DataOptions dataOptions,CustomerModel customerModel) {
 		// TODO Auto-generated method stub
 		ReGridData reGridData=new ReGridData();
+		StringBuffer hql = new StringBuffer();
+
+		CustomerQueryModel query = new CustomerQueryModel();
+		query.setCustomerName(customerModel.getCustomerName());
+		query.setAddress(customerModel.getAddress());
+		query.setLinkman(customerModel.getLinkman());
+		query.setPostCode(customerModel.getPostCode());
+		query.setEmail(customerModel.getEmail());
+		query.setCityName(customerModel.getEmail());
+		
+		List<CustomerModel> list=customerDao.query(dataOptions.getPageIndex()+1, dataOptions.getPageSize(), query ,dataOptions );
+		int count = customerDao.countAll();
+				
 		reGridData.setData(list);
-        reGridData.setCount(list.size());
-        reGridData.setEnd(list.size());
+        reGridData.setCount(count);
+        reGridData.setEnd(count);
         reGridData.setPage(dataOptions.getPageIndex()+1);
-        reGridData.setPages(list.size()/dataOptions.getPageSize()+1);
+        int pages=0;
+        if(count%dataOptions.getPageSize()==0){
+        	pages=count/dataOptions.getPageSize();
+        }else{
+        	pages= count/dataOptions.getPageSize()+1;
+        }
+        reGridData.setPages(pages);
 		return reGridData;
 	}
+
+
 
    
 }

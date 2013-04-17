@@ -41,7 +41,7 @@ public class CustomerController extends BaseController{
     	
      	  //TODO 做全部信息的展示 包括 分页 模糊查询 功能
      	       
-        return customerService.getCustomerListByPage(customerService.listAll(),options);
+        return customerService.getCustomerListByPage(options,remodel);
     }
 
     @RequestMapping(value = "/users/{id}", method = {RequestMethod.GET})
@@ -80,7 +80,8 @@ public class CustomerController extends BaseController{
     public Result<CustomerModel> deleteUsersById(CustomerModel customerModel,@PathVariable("id")Integer id) {
     	Result<CustomerModel> result= new Result<CustomerModel>();
          //TODO 根据ID删除 某条 信息 
-    	
+    	customerService.delete(id);
+    	result.setData(null);
         return result;
     } 
 
