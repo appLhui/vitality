@@ -50,6 +50,6 @@ define (require, exports) ->
           beforeFormShow: ->
           reloadForm: method.reloadForm
           beforeFormSubmit: ->
-          @
+        @
 
     new AppView()

@@ -111,7 +111,6 @@ define(function(require, exports, module) {
 
         this.$searchForm.append('<input type="hidden" name="pageIndex" value="0"><input type="hidden" name="pageSize" >').attr({'action':this.options.url});
         this.$searchForm.validationEngine({
-            ajaxFormValidationMethod: 'GET',
             onAjaxFormComplete:$.proxy(this.renderHtml, this)
         });
 
@@ -326,14 +325,17 @@ define(function(require, exports, module) {
             var _id=this.$element.find('tbody tr.info').find('td[data-property="'+this.options.key+'"]').html();
             if ($(e.currentTarget).hasClass('add')) {
                 $title.html('添加操作');
+                $modal.find('button[type="submit"]').html('添加');
                 this.$operateForm.attr({action:this.options.url,method:"PUT"});
             } else if($(e.currentTarget).hasClass('delete')){
                 if (this.reloadForm()) return false;
                 $title.html('删除操作');
+                $modal.find('button[type="submit"]').html('删除');
                 this.$operateForm.attr({action:this.options.url+'/'+_id,method:"DELETE"});
             } else if($(e.currentTarget).hasClass('modify')||$(e.currentTarget).is("tr")){
                 if (this.reloadForm()) return false;
                 $title.html('修改操作');
+                $modal.find('button[type="submit"]').html('修改');
                 this.$operateForm.attr({action:this.options.url+'/'+_id,method:"POST"});
             }
             this.$search.parent('div').removeClass('open');

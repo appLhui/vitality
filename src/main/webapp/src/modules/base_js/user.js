@@ -51,14 +51,15 @@
           return this.render();
         },
         render: function() {
-          return $(this.el).find('table').datagrid({
+          $(this.el).find('table').datagrid({
             dataSource: dataSource,
             url: '../customer/users',
             key: 'customerId',
             beforeFormShow: function() {},
             reloadForm: method.reloadForm,
             beforeFormSubmit: function() {}
-          }, this);
+          });
+          return this;
         }
       });
       return new AppView();
