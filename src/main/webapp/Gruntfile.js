@@ -22,17 +22,12 @@ module.exports = function (grunt) {
             }
         },
         combo: {
-//            options: {
-//                sourceMap: {
-//                    sourceRoot: '/src/'
-//                }
-//            },
             modules: {
                 files: [
                     {
                         expand: true,
                         cwd: 'src/modules/base_js/',
-                        src: '**/*.js',
+                        src: ['**/*.js', '!plug-in/**/*.js'],
                         dest: './develop/js/modules/'
                     }
                 ]
@@ -62,21 +57,19 @@ module.exports = function (grunt) {
             },
             modules: {
                 files: ['./src/modules/base_js/**/*.js'],
-                tasks: [ 'combo:modules']
+                tasks: [ 'jshint:all','combo:modules']
             },
             coffee: {
                 files: ['./src/modules/coffee/**/*.coffee'],
-                tasks: ['coffee', 'combo:modules']
+                tasks: ['coffee','jshint:all', 'combo:modules']
             },
-            jade:{
+            jade: {
                 files: ['./src/jade/**/*.jade'],
                 tasks: ['jade']
             }
         },
         jshint: {
-            all: ['./src/modules/base_js/**/*.js', './src/plug-in/**/*.js'],
-            plugin: ['./src/plug-in/**/*.js'],
-            modules: ['./src/modules/base_js/**/*.js'],
+            all: ['./src/modules/base_js/**/*.js', '!./src/modules/base_js/plug-in/**/*.js'],
             options: {
                 curly: true,
                 eqeqeq: true,
@@ -101,12 +94,22 @@ module.exports = function (grunt) {
                 ]
             }
         },
-        clean: ["./develop", "./release"],
+        clean: ["./develop", "./release", './html'],
         copy: {
             plugin: {
                 files: [
-                    {expand: true, cwd: './src/plug-in/', src: ['**'], dest: './src/modules/base_js/plug-in'} ,
-                    {expand: true, cwd: './src/base/', src: ['**'], dest: './develop/js/base'}
+                    {
+                        expand: true,
+                        cwd: './src/plug-in/',
+                        src: ['**'],
+                        dest: './src/modules/base_js/plug-in'
+                    } ,
+                    {
+                        expand: true,
+                        cwd: './src/base/',
+                        src: ['**'],
+                        dest: './develop/js/base'
+                    }
                 ]
             }
         },
@@ -128,7 +131,7 @@ module.exports = function (grunt) {
                     {
                         expand: true,
                         cwd: './src/jade',
-                        src: '**/*.jade',
+                        src: ['**/*.jade', '!{languages,modules}/*.jade'],
                         dest: './html',
                         ext: '.html'
                     }
@@ -137,9 +140,6 @@ module.exports = function (grunt) {
         }
     });
 
-    grunt.event.on('watch', function(action, filepath) {
-        grunt.log.writeln(filepath + ' has ' + action);
-    });
 
     grunt.loadNpmTasks('grunt-contrib-cssmin');     //压缩css
     grunt.loadNpmTasks('grunt-contrib-concat');     //合并文件
@@ -154,11 +154,12 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-jade');
 
-//    grunt.registerTask('default', ['']);
-    grunt.registerTask('default', ['clean','jade', 'imagemin', 'copy', 'concat', 'coffee', 'combo', 'watch']);   //默认的任务链
+    grunt.registerTask('default', ['clean', 'jade', 'imagemin', 'coffee','copy', 'jshint',  'concat', 'combo', 'watch']);   //默认的任务链
 
-    grunt.registerTask('develop', ['clean', 'jade','imagemin', 'jshint:all', 'copy', 'concat', 'coffee', 'combo']);   //开发版的任务链
+    grunt.registerTask('develop', ['clean', 'jade', 'imagemin', 'coffee', 'copy','jshint', 'concat', 'combo']);   //开发版的任务链
 
-    grunt.registerTask('release', ['clean','jade', 'imagemin', 'jshint:all', 'copy', 'concat', 'coffee', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
+    grunt.registerTask('release', ['clean', 'jade', 'imagemin', 'coffee', 'copy','jshint', 'concat', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
 
 };
+
+
