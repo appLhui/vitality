@@ -6,3 +6,7 @@ src/main/webapp/.idea/
 src/main/webapp/WEB-INF/classes
 src/main/webapp/WEB-INF/lib/*.jar
 **/*.class
+src/main/webapp/develop/
+src/main/webapp/release/
+
+
