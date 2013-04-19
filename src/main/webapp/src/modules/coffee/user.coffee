@@ -58,7 +58,7 @@ define (require) ->
         $(@el).find('#daterangepicker').daterangepicker()
         $(@el).find('#datetimepicker').datetimepicker()
         $(@el).find('#uploadify').uploadify
-          swf:'../../../../../vitality/src/main/webapp/develop/js/base/uploadify.swf'
+          swf:'../../../../../vitality/src/main/webapp/develop/swf/uploadify.swf'
         $(@el).find('#chosen').chosen()
         @
 

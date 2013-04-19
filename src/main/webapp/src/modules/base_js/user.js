@@ -67,7 +67,7 @@
           $(this.el).find('#daterangepicker').daterangepicker();
           $(this.el).find('#datetimepicker').datetimepicker();
           $(this.el).find('#uploadify').uploadify({
-            swf: '../../../../../vitality/src/main/webapp/develop/js/base/uploadify.swf'
+            swf: '../../../../../vitality/src/main/webapp/develop/swf/uploadify.swf'
           });
           $(this.el).find('#chosen').chosen();
           return this;

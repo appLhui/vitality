@@ -1,15 +1,13 @@
 <!DOCTYPE html>
 include languages/zh_CN
+versions ='release'
 
 html
     head
         meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
-        link(rel='stylesheet', href='../develop/css/main.css', type='text/css' )
-        script(type="text/javascript",src="../develop/js/base/jquery.js")
-        script(type="text/javascript",src="../develop/js/base/underscore.js")
-        script(type="text/javascript",src="../develop/js/base/backbone.js")
-        script(type="text/javascript",src="../develop/js/base/backbone.localStorage.js")
-        script(type="text/javascript",src="../develop/js/modules/user.js",data-main="user")
+        link(rel='stylesheet', href='../#{versions}/css/main.css', type='text/css' )
+        script(type="text/javascript",src="../#{versions}/js/base.js")
+        script(type="text/javascript",src="../#{versions}/js/modules/user.js",data-main="user")
     body
         .container#userTable
             include modules/topMenu
