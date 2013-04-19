@@ -8,6 +8,7 @@
 define(function(require, exports, module) {
     require('./validationEngine');
     require('util/swfobject');
+    require('./apprise');
     /*
      Uploadify v3.2
      Copyright (c) 2012 Reactive Apps, Ronnie Garcia
@@ -33,7 +34,7 @@ define(function(require, exports, module) {
                     var settings = $.extend({
                         // Required Settings
                         id       : $this.attr('id'), // The ID of the DOM object
-                        swf      : '/sea-modules/plug-in/uploadify.swf', // The path to the uploadify SWF file
+                        swf      : '/uploadify.swf', // The path to the uploadify SWF file
                         uploader : 'uploadify.php',  // The path to the server-side upload script
 
                         // Options
@@ -41,7 +42,7 @@ define(function(require, exports, module) {
                         buttonClass     : '',                 // A class name to add to the browse button DOM object
                         buttonCursor    : 'hand',             // The cursor to use with the browse button
                         buttonImage     : null,               // (String or null) The path to an image to use for the Flash browse button if not using CSS to style the button
-                        buttonText      : '选择文件',     // The text to use for the browse button
+                        buttonText      : window.languages.uploadify.selectFile,     // The text to use for the browse button
                         checkExisting   : false,              // The path to a server-side script that checks for existing files on the server
                         debug           : false,              // Turn on swfUpload debugging mode
                         fileObjName     : 'Filedata',         // The name of the file object to use in your server-side script
@@ -62,7 +63,7 @@ define(function(require, exports, module) {
                         requeueErrors   : false,              // Keep errored files in the queue and keep trying to upload them
                         successTimeout  : 30,                 // The number of seconds to wait for Flash to detect the server's response after the file has finished uploading
                         uploadLimit     : 0,                  // The maximum number of files you can upload
-                        width           : 96,                // The width of the browse button
+                        width           : 126,                // The width of the browse button
 
                         // Events
                         overrideEvents  : []             // (Array) A list of default event handlers to skip
@@ -214,7 +215,7 @@ define(function(require, exports, module) {
                             uploadSize         : 0, // The size in bytes of the upload queue
                             queueBytesUploaded : 0, // The size in bytes that have been uploaded for the current upload queue
                             uploadQueue        : [], // The files currently to be uploaded
-                            errorMsg           : '这个文件不能加入上传队列:'
+                            errorMsg           : window.languages.uploadify.uploadErrorMsg[0]
                         };
 
                         // Save references to all the objects
@@ -259,7 +260,7 @@ define(function(require, exports, module) {
                                 } else {
                                     swfuploadify.cancelUpload($(this).attr('id'));
                                 }
-                                $(this).find('.data').removeClass('data').html(' - 取消');
+                                $(this).find('.data').removeClass('data').html(' - '+window.languages.uploadify.cancel);
                                 $(this).find('.uploadify-progress-bar').remove();
                                 $(this).delay(1000 + 100 * delay).fadeOut(500, function() {
                                     $(this).remove();
@@ -272,7 +273,7 @@ define(function(require, exports, module) {
                         } else {
                             for (var n = 0; n < args.length; n++) {
                                 swfuploadify.cancelUpload(args[n]);
-                                $('#' + args[n]).find('.data').removeClass('data').html(' - 取消');
+                                $('#' + args[n]).find('.data').removeClass('data').html(' - '+window.languages.uploadify.cancel);
                                 $('#' + args[n]).find('.uploadify-progress-bar').remove();
                                 $('#' + args[n]).delay(1000 + 100 * n).fadeOut(500, function() {
                                     $(this).remove();
@@ -283,7 +284,7 @@ define(function(require, exports, module) {
                         var item = $('#' + settings.queueID).find('.uploadify-queue-item').get(0);
                         $item = $(item);
                         swfuploadify.cancelUpload($item.attr('id'));
-                        $item.find('.data').removeClass('data').html(' - 取消');
+                        $item.find('.data').removeClass('data').html(' - '+window.languages.uploadify.cancel);
                         $item.find('.uploadify-progress-bar').remove();
                         $item.delay(1000).fadeOut(500, function() {
                             $(this).remove();
@@ -504,7 +505,7 @@ define(function(require, exports, module) {
                 var settings = this.settings;
 
                 // Reset some queue info
-                this.queueData.errorMsg       = '这个文件不能加入上传队列:';
+                this.queueData.errorMsg       = window.languages.uploadify.uploadErrorMsg[0];
                 this.queueData.filesReplaced  = 0;
                 this.queueData.filesCancelled = 0;
 
@@ -547,16 +548,21 @@ define(function(require, exports, module) {
                 for (var n in this.queueData.files) {
                     queuedFile = this.queueData.files[n];
                     if (queuedFile.uploaded != true && queuedFile.name == file.name) {
-                        var replaceQueueItem = confirm('The file named "' + file.name + '" is already in the queue.\nDo you want to replace the existing item in the queue?');
-                        if (!replaceQueueItem) {
-                            this.cancelUpload(file.id);
-                            this.queueData.filesCancelled++;
-                            return false;
-                        } else {
-                            $('#' + queuedFile.id).remove();
-                            this.cancelUpload(queuedFile.id);
-                            this.queueData.filesReplaced++;
-                        }
+                        var _this=this;
+                        $('body').apprise({
+                            html:window.languages.uploadify.uploadErrorMsg[1] + file.name + window.languages.uploadify.uploadErrorMsg[2],
+                            callback:function(y){
+                                if(y){
+                                    $('#' + queuedFile.id).remove();
+                                    _this.cancelUpload(queuedFile.id);
+                                    _this.queueData.filesReplaced++;
+                                }else{
+                                    _this.cancelUpload(file.id);
+                                    _this.queueData.filesCancelled++;
+                                    return false;
+                                }
+                            }
+                        });
                     }
                 }
 
@@ -631,19 +637,19 @@ define(function(require, exports, module) {
                     switch(errorCode) {
                         case SWFUpload.QUEUE_ERROR.QUEUE_LIMIT_EXCEEDED:
                             if (settings.queueSizeLimit > errorMsg) {
-                                this.queueData.errorMsg += '\nThe number of files selected exceeds the remaining upload limit (' + errorMsg + ').';
+                                this.queueData.errorMsg += '\n '+window.languages.uploadify.uploadErrorMsg[3]+' (' + errorMsg + ').';
                             } else {
-                                this.queueData.errorMsg += '\nThe number of files selected exceeds the queue size limit (' + settings.queueSizeLimit + ').';
+                                this.queueData.errorMsg += '\n '+window.languages.uploadify.uploadErrorMsg[4]+' (' + settings.queueSizeLimit + ').';
                             }
                             break;
                         case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-                            this.queueData.errorMsg += '\n文件 "' + file.name + '" 大小超过 (' + settings.fileSizeLimit + ').';
+                            this.queueData.errorMsg += '\n'+window.languages.uploadify.file+' "' + file.name + '" '+window.languages.uploadify.uploadErrorMsg[5]+' (' + settings.fileSizeLimit + ').';
                             break;
                         case SWFUpload.QUEUE_ERROR.ZERO_BYTE_FILE:
-                            this.queueData.errorMsg += '\n文件 "' + file.name + '" 是空文件.';
+                            this.queueData.errorMsg += '\n'+window.languages.uploadify.file+' "' + file.name + '" '+window.languages.uploadify.uploadErrorMsg[6];
                             break;
                         case SWFUpload.QUEUE_ERROR.FILE_EXCEEDS_SIZE_LIMIT:
-                            this.queueData.errorMsg += '\n文件 "' + file.name + '" 是不正确格式 (' + settings.fileTypeDesc + ').';
+                            this.queueData.errorMsg += '\n'+window.languages.uploadify.file+' "' + file.name + '" '+window.languages.uploadify.uploadErrorMsg[7]+' (' + settings.fileTypeDesc + ').';
                             break;
                     }
                 }
@@ -735,34 +741,34 @@ define(function(require, exports, module) {
                 var settings = this.settings;
 
                 // Set the error string
-                var errorString = '错误';
+                var errorString = window.languages.uploadify.error;
                 switch(errorCode) {
                     case SWFUpload.UPLOAD_ERROR.HTTP_ERROR:
-                        errorString = 'HTTP 错误 (' + errorMsg + ')';
+                        errorString = window.languages.uploadify.uploadErrorMsg[8]+' (' + errorMsg + ')';
                         break;
                     case SWFUpload.UPLOAD_ERROR.MISSING_UPLOAD_URL:
-                        errorString = '丢失上传地址';
+                        errorString = window.languages.uploadify.uploadErrorMsg[9];
                         break;
                     case SWFUpload.UPLOAD_ERROR.IO_ERROR:
-                        errorString = 'IO 错误';
+                        errorString = window.languages.uploadify.uploadErrorMsg[10];
                         break;
                     case SWFUpload.UPLOAD_ERROR.SECURITY_ERROR:
-                        errorString = '安全性 错误';
+                        errorString = window.languages.uploadify.uploadErrorMsg[11];
                         break;
                     case SWFUpload.UPLOAD_ERROR.UPLOAD_LIMIT_EXCEEDED:
-                        this.button.validationEngine('showPrompt', '上传达到限度 (' + errorMsg + ').', this.queueData.errorMsg,'','topRight',true);
-                        errorString = '超过上传限制';
+                        this.button.validationEngine('showPrompt', window.languages.uploadify.uploadErrorMsg[12]+' (' + errorMsg + ').', this.queueData.errorMsg,'','topRight',true);
+                        errorString = window.languages.uploadify.uploadErrorMsg[13];
                         break;
                     case SWFUpload.UPLOAD_ERROR.UPLOAD_FAILED:
-                        errorString = '失败';
+                        errorString = window.languages.uploadify.fail;
                         break;
                     case SWFUpload.UPLOAD_ERROR.SPECIFIED_FILE_ID_NOT_FOUND:
                         break;
                     case SWFUpload.UPLOAD_ERROR.FILE_VALIDATION_FAILED:
-                        errorString = '验证错误';
+                        errorString = window.languages.uploadify.uploadErrorMsg[14];
                         break;
                     case SWFUpload.UPLOAD_ERROR.FILE_CANCELLED:
-                        errorString = '取消';
+                        errorString = window.languages.uploadify.cancel;
                         this.queueData.queueSize   -= file.size;
                         this.queueData.queueLength -= 1;
                         if (file.status == SWFUpload.FILE_STATUS.IN_PROGRESS || $.inArray(file.id, this.queueData.uploadQueue) >= 0) {
@@ -773,7 +779,7 @@ define(function(require, exports, module) {
                         delete this.queueData.files[file.id];
                         break;
                     case SWFUpload.UPLOAD_ERROR.UPLOAD_STOPPED:
-                        errorString = '暂停';
+                        errorString = window.languages.uploadify.stop;
                         break;
                 }
 
@@ -866,18 +872,23 @@ define(function(require, exports, module) {
                         data    : {filename: file.name},
                         success : function(data) {
                             if (data == 1) {
-                                var overwrite = confirm('A file with the name "' + file.name + '" already exists on the server.\nWould you like to replace the existing file?');
-                                if (!overwrite) {
-                                    this.cancelUpload(file.id);
-                                    $('#' + file.id).remove();
-                                    if (this.queueData.uploadQueue.length > 0 && this.queueData.queueLength > 0) {
-                                        if (this.queueData.uploadQueue[0] == '*') {
-                                            this.startUpload();
-                                        } else {
-                                            this.startUpload(this.queueData.uploadQueue.shift());
+                                var _this=this;
+                                $('body').apprise({
+                                    html:window.languages.uploadify.uploadErrorMsg[1] + file.name + window.languages.uploadify.uploadErrorMsg[15],
+                                    callback:function(y){
+                                        if(!y){
+                                            _this.cancelUpload(file.id);
+                                            $('#' + file.id).remove();
+                                            if (_this.queueData.uploadQueue.length > 0 && _this.queueData.queueLength > 0) {
+                                                if (_this.queueData.uploadQueue[0] == '*') {
+                                                    _this.startUpload();
+                                                } else {
+                                                    _this.startUpload(this.queueData.uploadQueue.shift());
+                                                }
+                                            }
                                         }
                                     }
-                                }
+                                });
                             }
                         }
                     });
@@ -897,7 +908,7 @@ define(function(require, exports, module) {
 
                 // Call the default event handler
                 if ($.inArray('onUploadSuccess', settings.overrideEvents) < 0) {
-                    $('#' + file.id).find('.data').html(' - 完成');
+                    $('#' + file.id).find('.data').html(' - '+window.languages.uploadify.finish);
                 }
 
                 // Call the user-defined event handler

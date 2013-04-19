@@ -6,7 +6,7 @@
  * To change this template use File | Settings | File Templates.
  */
 define(function(require, exports, module) {
-    require('util/validationEngine-zh_CN');
+    require('util/validationEngineLanguage');
     (function($) {
 
         "use strict";

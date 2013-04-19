@@ -67,7 +67,7 @@ StaticDataSource.prototype = {
 define(function(require, exports, module) {
     require('./combobox');
     require('./modal');
-    require('./alert');
+    require('./apprise');
     require('./validationEngine');
 
     var Datagrid = function (element, options) {
@@ -201,7 +201,8 @@ define(function(require, exports, module) {
                     success:$.proxy(this.options.reloadForm, this.$operateForm)
                 });
             } else {
-                this.$element.before('<div class="alert fade in"><button type="button" class="close" data-dismiss="alert">×</button><strong>错误提示!</strong>请先选中一列数据!</div>');
+                this.$search.parent().removeClass('open');
+                $('body').apprise({html:window.languages.datagrid.noSelected});
                 return true;
             }
         },
@@ -243,7 +244,7 @@ define(function(require, exports, module) {
                 rowHTML += '</tr>';
             });
 
-            if (!rowHTML) rowHTML = self.placeholderRowHTML('0 条记录');
+            if (!rowHTML) rowHTML = self.placeholderRowHTML(window.languages.datagrid.noItemf);
 
             self.$tbody.html(rowHTML);
             self.$element.trigger('loaded');
@@ -324,18 +325,18 @@ define(function(require, exports, module) {
             $.proxy(this.options.beforeFormShow, this.$operateForm)();
             var _id=this.$element.find('tbody tr.info').find('td[data-property="'+this.options.key+'"]').html();
             if ($(e.currentTarget).hasClass('add')) {
-                $title.html('添加操作');
-                $modal.find('button[type="submit"]').html('添加');
+                $title.html(window.languages.datagrid.add);
+                $modal.find('button[type="submit"]').html(window.languages.datagrid.add);
                 this.$operateForm.attr({action:this.options.url,method:"PUT"});
             } else if($(e.currentTarget).hasClass('delete')){
                 if (this.reloadForm()) return false;
-                $title.html('删除操作');
-                $modal.find('button[type="submit"]').html('删除');
+                $title.html(window.languages.datagrid.delete);
+                $modal.find('button[type="submit"]').html(window.languages.datagrid.delete);
                 this.$operateForm.attr({action:this.options.url+'/'+_id,method:"DELETE"});
             } else if($(e.currentTarget).hasClass('modify')||$(e.currentTarget).is("tr")){
                 if (this.reloadForm()) return false;
-                $title.html('修改操作');
-                $modal.find('button[type="submit"]').html('修改');
+                $title.html(window.languages.datagrid.modify);
+                $modal.find('button[type="submit"]').html(window.languages.datagrid.modify);
                 this.$operateForm.attr({action:this.options.url+'/'+_id,method:"POST"});
             }
             this.$search.parent('div').removeClass('open');

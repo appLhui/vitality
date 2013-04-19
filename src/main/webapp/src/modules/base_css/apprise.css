@@ -1,0 +1,56 @@
+.appriseOverlay
+	{
+	position:fixed;
+	top:0;
+	left:0;
+	background:rgba(0, 0, 0, 0.8);
+	display:none;
+	}
+.appriseOuter
+	{
+	background:#eee;
+	border:1px solid #fff;
+	box-shadow:0px 3px 7px #333;
+	-moz-box-shadow:0px 3px 7px #333;
+	-webkit-box-shadow:0px 3px 7px #333;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	-khtml-border-radius:4px;
+	position:absolute;
+	z-index:99999999;
+	min-width:200px;
+	min-height:50px;
+	max-width:75%;
+	position:fixed;
+	display:none;
+	}
+.appriseInner
+	{
+	padding:20px;
+	color:#333;
+	}
+.appriseInner button
+	{
+	margin:0 3px;
+	}
+.aButtons, .aInput
+	{
+	margin:20px 10px 0px 10px;
+	text-align:center;
+	}
+.aTextbox
+	{
+	border:1px solid #aaa;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+	border-radius:4px;
+	-khtml-border-radius:4px;
+	box-shadow:0px 1px 0px #fff;
+	-moz-box-shadow:0px 1px 0px #fff;
+	-webkit-box-shadow:0px 1px 0px #fff;
+	width:180px;
+	font-size:12px;
+	font-weight:bold;
+	padding:5px 10px;
+	}

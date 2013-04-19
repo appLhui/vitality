@@ -7,31 +7,6 @@
  */
 define(function(require, exports, module) {
     require('./collapse');
-    /**
-     * @license
-     * =========================================================
-     * bootstrap-datetimepicker.js
-     * http://www.eyecon.ro/bootstrap-datepicker
-     * =========================================================
-     * Copyright 2012 Stefan Petre
-     *
-     * Contributions:
-     *  - Andrew Rowls
-     *  - Thiago de Arruda
-     *
-     * Licensed under the Apache License, Version 2.0 (the "License");
-     * you may not use this file except in compliance with the License.
-     * You may obtain a copy of the License at
-     *
-     * http://www.apache.org/licenses/LICENSE-2.0
-     *
-     * Unless required by applicable law or agreed to in writing, software
-     * distributed under the License is distributed on an "AS IS" BASIS,
-     * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-     * See the License for the specific language governing permissions and
-     * limitations under the License.
-     * =========================================================
-     */
 
     (function($) {
 
@@ -972,14 +947,11 @@ define(function(require, exports, module) {
         var dpgId = 0;
         var dates = $.fn.datetimepicker.dates = {
             en: {
-                days: ["周日", "周一", "周二", "周三", "周四",
-                    "周五", "周六", "周日"],
-                daysShort: ["日", "一", "二", "三", "四", "五", "六", "日"],
-                daysMin: ["日", "一", "二", "三", "四", "五", "六", "日"],
-                months: ["一月", "二月", "三月", "四月", "五月", "六月",
-                    "七月", "八月", "九月", "十月", "十一", "十二"],
-                monthsShort:  ["一月", "二月", "三月", "四月", "五月", "六月",
-                    "七月", "八月", "九月", "十月", "十一", "十二"]
+                days: window.languages.datetimepicker.days,
+                daysShort: window.languages.datetimepicker.daysShort,
+                daysMin: window.languages.datetimepicker.daysMin,
+                months: window.languages.datetimepicker.months,
+                monthsShort:window.languages.datetimepicker.monthsShort
             }
         };
 

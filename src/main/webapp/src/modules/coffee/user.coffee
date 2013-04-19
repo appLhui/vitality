@@ -1,39 +1,44 @@
-define (require, exports) ->
+define (require) ->
   topMenu=require './topMenu'
   method=require './user_method'
+  require 'plug-in/datagrid'
+  require 'plug-in/daterangepicker'
+  require 'plug-in/datetimepicker'
+  require 'plug-in/uploadify'
+  require 'plug-in/chosen'
   $ ->
     dataSource=
       columns: [
         {property: 'customerId'
-        label: '客户编号'
+        label: window.languages.page.customerID
         sortable: true }
 
         {property: 'customerName'
-        label: '客户名称'
+        label: window.languages.page.customerName
         sortable: true}
 
         {property: 'address'
-        label: '地址'
+        label: window.languages.page.address
         sortable: true}
 
         {property: 'linkman'
-        label: '联系人'
+        label: window.languages.page.linkman
         sortable: true}
 
         {property: 'postCode'
-        label: '邮编'
+        label: window.languages.page.postCode
         sortable: true}
 
         {property: 'phone'
-        label: '电话'
+        label: window.languages.page.phone
         sortable: true}
 
         {property: 'email'
-        label: '邮箱'
+        label: window.languages.page.email
         sortable: true}
 
         {property: 'cityName'
-        label: '城市'
+        label: window.languages.page.cityName
         sortable: true}
       ]
 
@@ -50,6 +55,12 @@ define (require, exports) ->
           beforeFormShow: ->
           reloadForm: method.reloadForm
           beforeFormSubmit: ->
+        $(@el).find('#daterangepicker').daterangepicker()
+        $(@el).find('#datetimepicker').datetimepicker()
+        $(@el).find('#uploadify').uploadify
+          swf:'../../../../../vitality/src/main/webapp/develop/js/base/uploadify.swf'
+        $(@el).find('#chosen').chosen()
         @
 
     new AppView()
+    @

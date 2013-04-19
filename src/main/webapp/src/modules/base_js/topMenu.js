@@ -2,7 +2,6 @@
   define(function(require, exports) {
     require('plug-in/collapse');
     require('plug-in/dropdown');
-    require('plug-in/datagrid');
     exports.init = function() {
       var TopMenuModel, TopMenuView, topMenuModel, topMenuView;
 
@@ -29,7 +28,8 @@
           return this;
         }
       });
-      return topMenuView = new TopMenuView();
+      topMenuView = new TopMenuView();
+      return this;
     };
     return this.exports;
   });

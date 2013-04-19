@@ -166,12 +166,12 @@ define(function(require, exports, module) {
             this.cb = $.noop;
             this.format = 'yyyy-MM-dd';
             this.locale = {
-                applyLabel:"确定",
-                fromLabel:"始",
-                toLabel:"止",
-                customRangeLabel:"自定义选择",
-                daysOfWeek:['日', '一', '二', '三', '四', '五','六'],
-                monthNames:['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一', '十二'],
+                applyLabel:window.languages.daterangepicker.applyLabel,
+                fromLabel:window.languages.daterangepicker.fromLabel,
+                toLabel:window.languages.daterangepicker.toLabel,
+                customRangeLabel:window.languages.daterangepicker.customRangeLabel,
+                daysOfWeek:window.languages.daterangepicker.daysOfWeek,
+                monthNames:window.languages.daterangepicker.monthNames,
                 firstDay:0
             };
 
@@ -299,9 +299,9 @@ define(function(require, exports, module) {
 
                     var list = '<ul>';
                     for (var range in this.ranges) {
-                        list += '<li>' + range + '</li>';
+                        list += '<li vl="'+range+'">' + options.ranges[range][2] + '</li>';
                     }
-                    list += '<li>' + this.locale.customRangeLabel + '</li>';
+                    list += '<li vl="'+this.locale.customRangeLabel+'">' + this.locale.customRangeLabel + '</li>';
                     list += '</ul>';
                     this.container.find('.ranges').prepend(list);
                 }
@@ -450,10 +450,11 @@ define(function(require, exports, module) {
 
             enterRange: function (e) {
                 var label = e.target.innerHTML;
+                var vl=$(e.target).attr('vl');
                 if (label == this.locale.customRangeLabel) {
                     this.updateView();
                 } else {
-                    var dates = this.ranges[label];
+                    var dates = this.ranges[vl];
                     this.container.find('input[name=daterangepicker_start]').val(dates[0].toString(this.format));
                     this.container.find('input[name=daterangepicker_end]').val(dates[1].toString(this.format));
                 }
@@ -461,10 +462,11 @@ define(function(require, exports, module) {
 
             clickRange: function (e) {
                 var label = e.target.innerHTML;
+                var vl=$(e.target).attr('vl');
                 if (label == this.locale.customRangeLabel) {
                     this.container.find('.calendar').show();
                 } else {
-                    var dates = this.ranges[label];
+                    var dates = this.ranges[vl];
 
                     this.startDate = dates[0];
                     this.endDate = dates[1];
@@ -676,13 +678,14 @@ define(function(require, exports, module) {
 
 
         $.fn.daterangepicker.defaults={
+
             ranges: {
-                '今天': ['today', 'today'],
-                '昨天': ['yesterday', 'yesterday'],
-                '前7天': [Date.today().add({ days: -6 }), 'today'],
-                '前30天': [Date.today().add({ days: -29 }), 'today'],
-                '本月': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth()],
-                '上个月': [Date.today().moveToFirstDayOfMonth().add({ months: -1 }), Date.today().moveToFirstDayOfMonth().add({ days: -1 })]
+                'today': ['today', 'today',window.languages.daterangepicker.today],
+                'yestoday': ['yesterday', 'yesterday',window.languages.daterangepicker.yestoday],
+                'last7days': [Date.today().add({ days: -6 }), 'today',window.languages.daterangepicker.last7days],
+                'last30days': [Date.today().add({ days: -29 }), 'today',window.languages.daterangepicker.last30days],
+                'thisMonth': [Date.today().moveToFirstDayOfMonth(), Date.today().moveToLastDayOfMonth(),window.languages.daterangepicker.thisMonth],
+                'lastMonth': [Date.today().moveToFirstDayOfMonth().add({ months: -1 }), Date.today().moveToFirstDayOfMonth().add({ days: -1 }),window.languages.daterangepicker.lastMonth]
             },
             opens: 'right',
             format: 'yyyy-MM-dd',

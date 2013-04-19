@@ -1,0 +1,101 @@
+script(type="text/javascript")
+    (function() {
+            var wl;
+
+            wl = window.languages = {};
+                wl.apprise = {
+                'textOk': '#{ok}',
+                'textCancel': '#{cancel}',
+                'textYes': '#{yes}',
+                'textNo':'#{no}'
+            };
+
+            wl.datagrid = {
+                noSelected: '#{noSelected}!',
+                add: '#{add}',
+                'delete': '#{remove}',
+                modify: '#{modify}',
+                noItem: '#{noItem}'
+            };
+
+            wl.daterangepicker ={
+                 applyLabel:'#{ok}',
+                 fromLabel:'#{fromLabel}',
+                 toLabel:'#{toLabel}',
+                 customRangeLabel:'#{customRangeLabel}',
+                 daysOfWeek:['#{daysOfWeek[0]}','#{daysOfWeek[1]}','#{daysOfWeek[2]}','#{daysOfWeek[3]}','#{daysOfWeek[4]}','#{daysOfWeek[5]}','#{daysOfWeek[6]}'],
+                 monthNames:['#{monthNames[0]}','#{monthNames[1]}','#{monthNames[2]}','#{monthNames[3]}','#{monthNames[4]}','#{monthNames[5]}','#{monthNames[6]}','#{monthNames[7]}','#{monthNames[8]}','#{monthNames[9]}','#{monthNames[10]}','#{monthNames[11]}'],
+                 today:'#{today}',
+                 yestoday :'#{yestoday}',
+                 last7days:'#{last7days}',
+                 last30days:'#{last30days}',
+                 thisMonth:'#{thisMonth}',
+                 lastMonth:'#{lastMonth}'
+            };
+
+            wl.datetimepicker={
+                  days: ['#{days[0]}','#{days[1]}','#{days[2]}','#{days[3]}','#{days[4]}','#{days[5]}','#{days[6]}'],
+                  daysShort: ['#{daysShort[0]}','#{daysShort[1]}','#{daysShort[2]}','#{daysShort[3]}','#{daysShort[4]}','#{daysShort[5]}','#{daysShort[6]}'],
+                  daysMin: ['#{daysMin[0]}','#{daysMin[1]}','#{daysMin[2]}','#{daysMin[3]}','#{daysMin[4]}','#{daysMin[5]}','#{daysMin[6]}'],
+                  months: wl.daterangepicker.monthNames,
+                  monthsShort:['#{monthsShort[0]}','#{monthsShort[1]}','#{monthsShort[2]}','#{monthsShort[3]}','#{monthsShort[4]}','#{monthsShort[5]}','#{monthsShort[6]}','#{monthsShort[7]}','#{monthsShort[8]}','#{monthsShort[9]}','#{monthsShort[10]}','#{monthsShort[11]}']
+            }
+
+            wl.uploadify={
+                  selectFile:'#{selectFile}',
+                  uploadErrorMsg:['#{uploadErrorMsg[0]}','#{uploadErrorMsg[1]}','#{uploadErrorMsg[2]}','#{uploadErrorMsg[3]}','#{uploadErrorMsg[4]}','#{uploadErrorMsg[5]}','#{uploadErrorMsg[6]}','#{uploadErrorMsg[7]}','#{uploadErrorMsg[8]}','#{uploadErrorMsg[9]}','#{uploadErrorMsg[10]}','#{uploadErrorMsg[11]}','#{uploadErrorMsg[12]}','#{uploadErrorMsg[13]}','#{uploadErrorMsg[14]}','#{uploadErrorMsg[15]}'],
+                  cancel:'#{cancel}',
+                  file:'#{file}',
+                  error:'#{error}',
+                  stop:'#{stop}',
+                  finish:'#{finish}'
+            }
+
+            wl.validationEngineLanguage={
+                required:['#{v_required[0]}','#{v_required[1]}','#{v_required[2]}','#{v_required[3]}'],
+                dateRange:['#{v_dateRange[0]}','#{v_dateRange[1]}'],
+                dateTimeRange:['#{v_dateTimeRange[0]}','#{v_dateTimeRange[1]}'],
+                minSize:['#{v_minSize[0]}','#{v_minSize[1]}'],
+                maxSize:['#{v_maxSize[0]}','#{v_maxSize[1]}'],
+                groupRequired:['#{v_groupRequired[0]}'],
+                min:['#{v_min[0]}'],
+                max:['#{v_max[0]}'],
+                past:['#{v_past[0]}'],
+                future:['#{v_future[0]}'],
+                maxCheckbox:['#{v_maxCheckbox[0]}','#{v_maxCheckbox[1]}'],
+                minCheckbox:['#{v_minCheckbox[0]}','#{v_minCheckbox[1]}'],
+                equals:['#{v_equals[0]}'],
+                creditCard:['#{v_creditCard[0]}'],
+                phone:['#{v_phone[0]}'],
+                email:['#{v_email[0]}'],
+                integer:['#{v_integer[0]}'],
+                number:['#{v_number[0]}'],
+                date:['#{v_date[0]}'],
+                ipv4:['#{v_ipv4[0]}'],
+                url:['#{v_url[0]}'],
+                onlyNumberSp:['#{v_onlyNumberSp[0]}'],
+                onlyLetterSp:['#{v_onlyLetterSp[0]}'],
+                onlyLetterNumber:['#{v_onlyLetterNumber[0]}'],
+                dateFormat:['#{v_dateFormat[0]}'],
+                dateTimeFormat:['#{v_dateTimeFormat[0]}','#{v_dateTimeFormat[1]}','#{v_dateTimeFormat[2]}','#{v_dateTimeFormat[3]}',]
+            }
+
+            wl.chosen={
+                 selecteOptions:'#{selecteOptions}',
+                 selecteOption :'#{selecteOption}',
+                 noResults :'#{noResults}'
+            }
+
+            wl.page = {
+                customerID: '#{customerID}',
+                customerName: '#{customerName}',
+                address: '#{address}',
+                linkman: '#{linkman}',
+                postCode: '#{postCode}',
+                phone: '#{phone}',
+                email: '#{email}',
+                cityName: '#{cityName}'
+            };
+
+
+    }).call(this);

@@ -1,7 +1,6 @@
 define (require, exports) ->
   require 'plug-in/collapse'
   require 'plug-in/dropdown'
-  require 'plug-in/datagrid'
   exports.init = ->
     TopMenuModel=Backbone.Model.extend
       url:'../json/topMenu.json'
@@ -25,5 +24,6 @@ define (require, exports) ->
         @
 
     topMenuView = new TopMenuView();
+    @
   @exports
 

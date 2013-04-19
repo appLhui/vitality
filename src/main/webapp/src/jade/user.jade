@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-include CN
+include languages/zh_CN
+
 html
     head
         meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
@@ -11,12 +12,12 @@ html
         script(type="text/javascript",src="../develop/js/modules/user.js",data-main="user")
     body
         .container#userTable
-            include topMenu
+            include modules/topMenu
             table.table.table-bordered.datagrid
                 thead
                     tr
                         th
-                            span.datagrid-header-title #{title}
+                            span.datagrid-header-title #{userManagement}
                             .datagrid-header-right
                                 .btn-group
                                     a.btn.search(href="#")
@@ -42,31 +43,32 @@ html
                     tr
                         th
                             .datagrid-footer-left
-                                .grid-controls 第
+                                .grid-controls #{dataGridPagePugin[0]}
                                     span.grid-start.text-info
                                     span -
                                     span.grid-end.text-info
-                                    span 条 共
+                                    span #{dataGridPagePugin[1]}
                                     span.grid-count.text-info
-                                    span条 每页
+                                    span #{dataGridPagePugin[2]}
                                     select.grid-pagesize
                                         option 10
                                         option 20
                                         option 50
                                         option 100
+                                    span #{dataGridPagePugin[3]}
                             .datagrid-footer-right
                                 .grid-pager
                                     button.btn.grid-prevpage
                                         i.icon-chevron-left
-                                    span 当前第
+                                    span #{dataGridPagePugin[4]}
                                     .input-append.dropdown.combobox(style="width: 97px;")
                                         input.span1(type="text")
                                         button.btn(data-toggle="dropdown")
                                             i.caret
                                         ul.dropdown-menu
-                                    span 页 一共
+                                    span #{dataGridPagePugin[5]}
                                         span.grid-pages
-                                    span 页
+                                    span #{dataGridPagePugin[6]}
                                     button.btn.grid-nextpage
                                         i.icon-chevron-right
 
@@ -77,31 +79,31 @@ html
                         h4 #{search}
                     .modal-body
                         .control-group
-                            label.control-label 客户名称
+                            label.control-label #{customerName}
                             .controls
                                 input(type="text",name="customerName")
                         .control-group
-                            label.control-label 地址
+                            label.control-label #{address}
                             .controls
                                 input(type="text",name="address")
                         .control-group
-                            label.control-label 联系人
+                            label.control-label #{linkman}
                             .controls
                                 input(type="text",name="linkman")
                         .control-group
-                            label.control-label 邮编
+                            label.control-label #{postCode}
                             .controls
                                 input(type="text",name="postCode")
                         .control-group
-                            label.control-label 电话
+                            label.control-label #{phone}
                             .controls
                                 input(type="text",name="phone",class="validate[custom[phone]]")
                         .control-group
-                            label.control-label 电子邮件
+                            label.control-label #{email}
                             .controls
                                 input(type="text",name="email",class="validate[custom[email]]")
                         .control-group
-                            label.control-label 城市
+                            label.control-label #{cityName}
                             .controls
                                 input(type="text",name="cityName")
                     .modal-footer
@@ -115,33 +117,55 @@ html
                         h4 #{manipulation}
                     .modal-body
                         .control-group
-                            label.control-label 客户名称
+                            label.control-label #{customerName}
                             .controls
                                 input(type="text",name="customerName",class="validate[required]")
                         .control-group
-                            label.control-label 地址
+                            label.control-label #{address}
                             .controls
                                 input(type="text",name="address",class="validate[required]")
                         .control-group
-                            label.control-label 联系人
+                            label.control-label #{linkman}
                             .controls
                                 input(type="text",name="linkman",class="validate[required]")
                         .control-group
-                            label.control-label 邮编
+                            label.control-label #{postCode}
                             .controls
                                 input(type="text",name="postCode",class="validate[required]")
                         .control-group
-                            label.control-label 电话
+                            label.control-label #{phone}
                             .controls
                                 input(type="text",name="phone",class="validate[required,custom[phone]]")
                         .control-group
-                            label.control-label 电子邮件
+                            label.control-label #{email}
                             .controls
                                 input(type="text",name="email",class="validate[custom[email]]")
                         .control-group
-                            label.control-label 城市
+                            label.control-label #{cityName}
                             .controls
                                 input(type="text",name="cityName",class="validate[required]")
+                        .control-group
+                            label.control-label #{cityName}
+                            .input-append.controls#daterangepicker
+                                input(type="text")
+                                span.add-on
+                                    i.icon-calendar
+                        .control-group
+                            label.control-label #{cityName}
+                            .input-append.controls#datetimepicker
+                                input(type="text")
+                                span.add-on
+                                    i.icon-calendar
+                        .control-group
+                            label.control-label #{cityName}
+                            .controls
+                                input(type="file")#uploadify
+                        .control-group
+                            label.control-label #{cityName}
+                            .controls
+                                select#chosen
+                                    option 测1试
+                                    option 测试2
                     .modal-footer
                         button.btn(data-dismiss="modal",aria-hidden="true") #{cancel}
                         button.btn.btn-primary(type="submit") #{save}
