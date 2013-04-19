@@ -5,6 +5,15 @@
  * Time: 上午10:50
  * To change this template use File | Settings | File Templates.
  */
+
+var path = require('path');
+
+var lrSnippet = require('grunt-contrib-livereload/lib/utils').livereloadSnippet;
+
+var folderMount = function folderMount(connect, point) {
+    return connect.static(path.resolve(point));
+};
+
 module.exports = function (grunt) {
 
     grunt.initConfig({
@@ -54,28 +63,6 @@ module.exports = function (grunt) {
                 cwd: './develop/',
                 src: 'js/**/*.js',
                 dest: 'release'
-            }
-        },
-        watch: {
-            base_css: {
-                files: ['./src/modules/base_css/**/*.css'],
-                tasks: ['concat']
-            },
-            plugin: {
-                files: ['./src/plug-in/**/*.js'],
-                tasks: [ 'copy:plugin', 'combo:modules']
-            },
-            modules: {
-                files: ['./src/modules/base_js/**/*.js'],
-                tasks: [ 'jshint:all', 'combo:modules']
-            },
-            coffee: {
-                files: ['./src/modules/coffee/**/*.coffee'],
-                tasks: ['coffee', 'jshint:all', 'combo:modules']
-            },
-            jade: {
-                files: ['./src/jade/**/*.jade'],
-                tasks: ['jade']
             }
         },
         jshint: {
@@ -167,6 +154,38 @@ module.exports = function (grunt) {
                     }
                 ]
             }
+        },
+        connect: {
+            livereload: {
+                options: {
+                    port: 8088,
+                    middleware: function(connect, options) {
+                        return [lrSnippet, folderMount(connect, '.')]
+                    }
+                }
+            }
+        },
+        regarde: {
+            base_css: {
+                files: ['./src/modules/base_css/**/*.css'],
+                tasks: ['concat','livereload']
+            },
+            plugin: {
+                files: ['./src/plug-in/**/*.js'],
+                tasks: [ 'copy:plugin', 'combo:modules','livereload']
+            },
+            modules: {
+                files: ['./src/modules/base_js/**/*.js'],
+                tasks: [ 'jshint:all', 'combo:modules','livereload']
+            },
+            coffee: {
+                files: ['./src/modules/coffee/**/*.coffee'],
+                tasks: ['coffee', 'jshint:all', 'combo:modules','livereload']
+            },
+            jade: {
+                files: ['./src/jade/**/*.jade'],
+                tasks: ['jade','livereload']
+            }
         }
     });
 
@@ -176,16 +195,17 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-uglify');     //压缩js
     grunt.loadNpmTasks('grunt-contrib-coffee');     //转化coffeescript
     grunt.loadNpmTasks('grunt-shell');              //执行shell命令
-    grunt.loadNpmTasks('grunt-contrib-watch');     //添加监听器
     grunt.loadNpmTasks('grunt-cmd-combo');         //根据seajs依赖打包
     grunt.loadNpmTasks('grunt-contrib-jshint');    //用于代码优化检查
     grunt.loadNpmTasks('grunt-contrib-clean');     //清除文件
     grunt.loadNpmTasks('grunt-contrib-copy');
     grunt.loadNpmTasks('grunt-contrib-imagemin');
     grunt.loadNpmTasks('grunt-contrib-jade');
+    grunt.loadNpmTasks('grunt-contrib-livereload');
+    grunt.loadNpmTasks('grunt-contrib-connect');
+    grunt.loadNpmTasks('grunt-regarde');          //添加监听器
 
-    grunt.registerTask('default', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo', 'watch']);   //默认的任务链
-
+    grunt.registerTask('default', ['livereload-start','connect','clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo','regarde']);   //默认的任务链
     grunt.registerTask('develop', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo']);   //开发版的任务链
 
     grunt.registerTask('release', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
