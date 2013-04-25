@@ -17,7 +17,7 @@ var folderMount = function folderMount(connect, point) {
 module.exports = function (grunt) {
 
     grunt.initConfig({
-        pkg: grunt.file.readJSON('package.json'),
+        pkg: grunt.file.readJSON('./languages.json'),
         concat: {
             develop_css: {
                 src: './src/modules/base_css/**/*.css',
@@ -143,13 +143,32 @@ module.exports = function (grunt) {
             }
         },
         jade: {
-            all: {
+            zh_CN: {
+                options: {
+                    pretty:true,
+                    data:'<%= pkg.zh_CN %>'
+                },
                 files: [
                     {
                         expand: true,
                         cwd: './src/jade',
-                        src: ['**/*.jade', '!{languages,modules}/*.jade'],
-                        dest: './html',
+                        src: ['**/*.jade', '!modules/*.jade'],
+                        dest: './html/zh_CN',
+                        ext: '.html'
+                    }
+                ]
+            },
+            en: {
+                options: {
+                    pretty:true,
+                    data:'<%= pkg.EN %>'
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: './src/jade',
+                        src: ['**/*.jade', '!modules/*.jade'],
+                        dest: './html/en',
                         ext: '.html'
                     }
                 ]
@@ -158,8 +177,8 @@ module.exports = function (grunt) {
         connect: {
             livereload: {
                 options: {
-                    port: 8088,
-                    middleware: function(connect, options) {
+                    port: 8888,
+                    middleware: function (connect, options) {
                         return [lrSnippet, folderMount(connect, '.')]
                     }
                 }
@@ -168,25 +187,26 @@ module.exports = function (grunt) {
         regarde: {
             base_css: {
                 files: ['./src/modules/base_css/**/*.css'],
-                tasks: ['concat','livereload']
+                tasks: ['concat', 'livereload']
             },
             plugin: {
                 files: ['./src/plug-in/**/*.js'],
-                tasks: [ 'copy:plugin', 'combo:modules','livereload']
+                tasks: [ 'copy:plugin', 'combo:modules', 'livereload']
             },
             modules: {
                 files: ['./src/modules/base_js/**/*.js'],
-                tasks: [ 'jshint:all', 'combo:modules','livereload']
+                tasks: [ 'jshint:all', 'combo:modules', 'livereload']
             },
             coffee: {
                 files: ['./src/modules/coffee/**/*.coffee'],
-                tasks: ['coffee', 'jshint:all', 'combo:modules','livereload']
+                tasks: ['coffee', 'jshint:all', 'combo:modules', 'livereload']
             },
             jade: {
                 files: ['./src/jade/**/*.jade'],
-                tasks: ['jade','livereload']
+                tasks: ['jade:zh_CN', 'livereload']
             }
         }
+
     });
 
 
@@ -205,9 +225,9 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-regarde');          //添加监听器
 
-    grunt.registerTask('default', ['livereload-start','connect','clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo','regarde']);   //默认的任务链
-    grunt.registerTask('develop', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo']);   //开发版的任务链
 
+    grunt.registerTask('default', ['livereload-start', 'connect', 'clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo', 'regarde']);   //默认的任务链
+    grunt.registerTask('develop', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo']);   //开发版的任务链
     grunt.registerTask('release', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
 
 };

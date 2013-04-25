@@ -13,6 +13,9 @@
         return _results;
       }
     };
+    exports.add = function(a, b) {
+      return a + b;
+    };
     return this.exports;
   });
 

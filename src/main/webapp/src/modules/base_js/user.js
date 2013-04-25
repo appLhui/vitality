@@ -16,35 +16,35 @@
         columns: [
           {
             property: 'customerId',
-            label: window.languages.page.customerID,
+            label: window.languages.page.userPage.customerID,
             sortable: true
           }, {
             property: 'customerName',
-            label: window.languages.page.customerName,
+            label: window.languages.page.userPage.customerName,
             sortable: true
           }, {
             property: 'address',
-            label: window.languages.page.address,
+            label: window.languages.page.userPage.address,
             sortable: true
           }, {
             property: 'linkman',
-            label: window.languages.page.linkman,
+            label: window.languages.page.userPage.linkman,
             sortable: true
           }, {
             property: 'postCode',
-            label: window.languages.page.postCode,
+            label: window.languages.page.userPage.postCode,
             sortable: true
           }, {
             property: 'phone',
-            label: window.languages.page.phone,
+            label: window.languages.page.userPage.phone,
             sortable: true
           }, {
             property: 'email',
-            label: window.languages.page.email,
+            label: window.languages.page.userPage.email,
             sortable: true
           }, {
             property: 'cityName',
-            label: window.languages.page.cityName,
+            label: window.languages.page.userPage.cityName,
             sortable: true
           }
         ]
@@ -53,6 +53,7 @@
         el: $('#userTable'),
         initialize: function() {
           topMenu.init();
+          _.bindAll(this, 'render', 'remove');
           return this.render();
         },
         render: function() {
@@ -67,10 +68,13 @@
           $(this.el).find('#daterangepicker').daterangepicker();
           $(this.el).find('#datetimepicker').datetimepicker();
           $(this.el).find('#uploadify').uploadify({
-            swf: '../../../../../vitality/src/main/webapp/develop/swf/uploadify.swf'
+            swf: '../../develop/swf/uploadify.swf'
           });
           $(this.el).find('#chosen').chosen();
           return this;
+        },
+        remove: function() {
+          return $(this.el).remove();
         }
       });
       new AppView();

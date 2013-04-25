@@ -3,7 +3,8 @@ script(type="text/javascript")
             var wl;
 
             wl = window.languages = {};
-                wl.apprise = {
+
+            wl.apprise = {
                 'textOk': '#{ok}',
                 'textCancel': '#{cancel}',
                 'textYes': '#{yes}',
@@ -86,16 +87,7 @@ script(type="text/javascript")
                  noResults :'#{noResults}'
             }
 
-            wl.page = {
-                customerID: '#{customerID}',
-                customerName: '#{customerName}',
-                address: '#{address}',
-                linkman: '#{linkman}',
-                postCode: '#{postCode}',
-                phone: '#{phone}',
-                email: '#{email}',
-                cityName: '#{cityName}'
-            };
+            wl.page =!{JSON.stringify(page)};
 
 
     }).call(this);

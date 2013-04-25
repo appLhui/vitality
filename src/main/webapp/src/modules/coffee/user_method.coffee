@@ -4,6 +4,8 @@ define (require, exports) ->
     if respond.suc
       for key,value of respond.data
         $(@).find('input[name="'+key+'"]').val(value);
+  exports.add=(a,b) ->
+    a+b
 
   @exports
 

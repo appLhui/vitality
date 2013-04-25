@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+//include modules/gotoJs
+
+html
+    head
+        meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
+        link(rel='stylesheet', href='../../#{versions}/css/main.css', type='text/css' )
+        script(type="text/javascript",src="../../#{versions}/js/base.js")
+    body(style="padding: 100px;")
+        .container
+            form(action="")
+                h5 登陆页面
+                input.input-block-level(type="text",class="validate[required]",placeholder="用户名",name="loginName")
+                input.input-block-level(type="password",class="validate[required]",placeholder="密码",name="password")
+                button.btn.btn-primary(type="submit") 登录

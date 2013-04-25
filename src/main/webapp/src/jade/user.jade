@@ -1,13 +1,12 @@
 <!DOCTYPE html>
-include languages/en
-versions ='develop'
+include modules/gotoJs
 
 html
     head
         meta(http-equiv="Content-Type",content="text/html; charset=UTF-8")
-        link(rel='stylesheet', href='../#{versions}/css/main.css', type='text/css' )
-        script(type="text/javascript",src="../#{versions}/js/base.js")
-        script(type="text/javascript",src="../#{versions}/js/modules/user.js",data-main="user")
+        link(rel='stylesheet', href='../../#{versions}/css/main.css', type='text/css' )
+        script(type="text/javascript",src="../../#{versions}/js/base.js")
+        script(type="text/javascript",src="../../#{versions}/js/modules/user.js",data-main="user")
     body
         .container#userTable
             include modules/topMenu
@@ -15,7 +14,7 @@ html
                 thead
                     tr
                         th
-                            span.datagrid-header-title #{userManagement}
+                            span.datagrid-header-title #{page.userPage.userManagement}
                             .datagrid-header-right
                                 .btn-group
                                     a.btn.search(href="#")
@@ -77,31 +76,31 @@ html
                         h4 #{search}
                     .modal-body
                         .control-group
-                            label.control-label #{customerName}
+                            label.control-label #{page.userPage.customerName}
                             .controls
                                 input(type="text",name="customerName")
                         .control-group
-                            label.control-label #{address}
+                            label.control-label #{page.userPage.address}
                             .controls
                                 input(type="text",name="address")
                         .control-group
-                            label.control-label #{linkman}
+                            label.control-label #{page.userPage.linkman}
                             .controls
                                 input(type="text",name="linkman")
                         .control-group
-                            label.control-label #{postCode}
+                            label.control-label #{page.userPage.postCode}
                             .controls
                                 input(type="text",name="postCode")
                         .control-group
-                            label.control-label #{phone}
+                            label.control-label #{page.userPage.phone}
                             .controls
                                 input(type="text",name="phone",class="validate[custom[phone]]")
                         .control-group
-                            label.control-label #{email}
+                            label.control-label #{page.userPage.email}
                             .controls
                                 input(type="text",name="email",class="validate[custom[email]]")
                         .control-group
-                            label.control-label #{cityName}
+                            label.control-label #{page.userPage.cityName}
                             .controls
                                 input(type="text",name="cityName")
                     .modal-footer
@@ -115,51 +114,51 @@ html
                         h4 #{manipulation}
                     .modal-body
                         .control-group
-                            label.control-label #{customerName}
+                            label.control-label #{page.userPage.customerName}
                             .controls
                                 input(type="text",name="customerName",class="validate[required]")
                         .control-group
-                            label.control-label #{address}
+                            label.control-label #{page.userPage.address}
                             .controls
                                 input(type="text",name="address",class="validate[required]")
                         .control-group
-                            label.control-label #{linkman}
+                            label.control-label #{page.userPage.linkman}
                             .controls
                                 input(type="text",name="linkman",class="validate[required]")
                         .control-group
-                            label.control-label #{postCode}
+                            label.control-label #{page.userPage.postCode}
                             .controls
                                 input(type="text",name="postCode",class="validate[required]")
                         .control-group
-                            label.control-label #{phone}
+                            label.control-label #{page.userPage.phone}
                             .controls
                                 input(type="text",name="phone",class="validate[required,custom[phone]]")
                         .control-group
-                            label.control-label #{email}
+                            label.control-label #{page.userPage.email}
                             .controls
                                 input(type="text",name="email",class="validate[custom[email]]")
                         .control-group
-                            label.control-label #{cityName}
+                            label.control-label #{page.userPage.cityName}
                             .controls
                                 input(type="text",name="cityName",class="validate[required]")
                         .control-group
-                            label.control-label #{cityName}
+                            label.control-label #{page.userPage.cityName}
                             .input-append.controls#daterangepicker
                                 input(type="text")
                                 span.add-on
                                     i.icon-calendar
                         .control-group
-                            label.control-label #{cityName}
+                            label.control-label #{page.userPage.cityName}
                             .input-append.controls#datetimepicker
                                 input(type="text")
                                 span.add-on
                                     i.icon-calendar
                         .control-group
-                            label.control-label #{cityName}
+                            label.control-label #{page.userPage.cityName}
                             .controls
                                 input(type="file")#uploadify
                         .control-group
-                            label.control-label #{cityName}
+                            label.control-label #{page.userPage.cityName}
                             .controls
                                 select#chosen
                                     option 测1试

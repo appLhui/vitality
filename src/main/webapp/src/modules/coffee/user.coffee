@@ -10,35 +10,35 @@ define (require) ->
     dataSource=
       columns: [
         {property: 'customerId'
-        label: window.languages.page.customerID
+        label: window.languages.page.userPage.customerID
         sortable: true }
 
         {property: 'customerName'
-        label: window.languages.page.customerName
+        label: window.languages.page.userPage.customerName
         sortable: true}
 
         {property: 'address'
-        label: window.languages.page.address
+        label: window.languages.page.userPage.address
         sortable: true}
 
         {property: 'linkman'
-        label: window.languages.page.linkman
+        label: window.languages.page.userPage.linkman
         sortable: true}
 
         {property: 'postCode'
-        label: window.languages.page.postCode
+        label: window.languages.page.userPage.postCode
         sortable: true}
 
         {property: 'phone'
-        label: window.languages.page.phone
+        label: window.languages.page.userPage.phone
         sortable: true}
 
         {property: 'email'
-        label: window.languages.page.email
+        label: window.languages.page.userPage.email
         sortable: true}
 
         {property: 'cityName'
-        label: window.languages.page.cityName
+        label: window.languages.page.userPage.cityName
         sortable: true}
       ]
 
@@ -46,6 +46,7 @@ define (require) ->
       el: $('#userTable')
       initialize: ->
         topMenu.init()
+        _.bindAll @,'render','remove'
         @render()
       render: ->
         $(@el).find('table').datagrid
@@ -58,9 +59,11 @@ define (require) ->
         $(@el).find('#daterangepicker').daterangepicker()
         $(@el).find('#datetimepicker').datetimepicker()
         $(@el).find('#uploadify').uploadify
-          swf:'../../../../../vitality/src/main/webapp/develop/swf/uploadify.swf'
+          swf:'../../develop/swf/uploadify.swf'
         $(@el).find('#chosen').chosen()
         @
+      remove: ->
+        $(@el).remove()
 
     new AppView()
     @
