@@ -1,17 +1,117 @@
 <!DOCTYPE html>
-<!--include modules/gotoJs-->
+<script type="text/javascript">
+  (function() {
+          var wl;
+          
+          wl = window.languages = {};
+          
+          wl.apprise = {
+              'textOk': '确定',
+              'textCancel': '取消',
+              'textYes': '是',
+              'textNo':'否'
+          };
+          
+          wl.datagrid = {
+              noSelected: '请先选中一列数据!',
+              add: '添加',
+              'delete': '删除',
+              modify: '修改',
+              noItem: '0 条纪录'
+          };
+          
+          wl.daterangepicker ={
+               applyLabel:'确定',
+               fromLabel:'始',
+               toLabel:'止',
+               customRangeLabel:'自定义选择',
+               daysOfWeek:['日','一','二','三','四','五','六'],
+               monthNames:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一','十二'],
+               today:'今天',
+               yestoday :'昨天',
+               last7days:'前7天',
+               last30days:'前30天',
+               thisMonth:'本月',
+               lastMonth:'上个月'
+          };
+          
+          wl.datetimepicker={
+                days: ['周日','周一','周二','周三','周四','周五','周六'],
+                daysShort: ['日','一','二','三','四','五','六'],
+                daysMin: ['日','一','二','三','四','五','六'],
+                months: wl.daterangepicker.monthNames,
+                monthsShort:['一月','二月','三月','四月','五月','六月','七月','八月','九月','十月','十一','十二']
+          }
+          
+          wl.uploadify={
+                selectFile:'选择文件',
+                uploadErrorMsg:['这个文件不能加入上传队列:','文件名为 ','已经在队列。是否想替换此文件？','所选文件的数量超过剩余的上传限制','所选文件的数量超过了队列大小限制','大小超过','是空文件','是不正确格式','HTTP 错误','丢失上传地址','IO 错误','安全性错误','上传到达限度','超过上传限度','验证错误','已经存在于服务器。是否要替换它？'],
+                cancel:'取消',
+                file:'文件',
+                error:'错误',
+                stop:'暂停',
+                finish:'完成'
+          }
+          
+          wl.validationEngineLanguage={
+              required:['* 此处不可空白','* 请选择一个项目','* 您必须钩选此栏','* 日期范围不可空白'],
+              dateRange:['* 无效的','日期范围'],
+              dateTimeRange:['* 无效的','时间范围'],
+              minSize:['* 最少 ','个字符'],
+              maxSize:['* 最多 ','个字符'],
+              groupRequired:['* 你必需选填其中一个栏位'],
+              min:['* 最小值为'],
+              max:['* 最大值为'],
+              past:['* 日期必需早于'],
+              future:['* 日期必需晚于'],
+              maxCheckbox:['* 最多选取 ','个项目'],
+              minCheckbox:['* 请选择','个项目'],
+              equals:['* 请输入与上面相同的密码'],
+              creditCard:['* 无效的信用卡号码'],
+              phone:['* 无效的电话号码'],
+              email:['* 邮件地址无效'],
+              integer:['* 不是有效的整数'],
+              number:['* 无效的数字'],
+              date:['* 无效的日期，格式必需为 YYYY-MM-DD'],
+              ipv4:['* 无效的 IP 地址'],
+              url:['* 无效的 URL'],
+              onlyNumberSp:['* 只能填数字'],
+              onlyLetterSp:['* 只接受英文字母大小写'],
+              onlyLetterNumber:['* 不接受特殊字符'],
+              dateFormat:['* 无效的日期格式'],
+              dateTimeFormat:['* 无效的日期或时间格式','可接受的格式：','mm/dd/yyyy hh:mm:ss AM|PM 或 ','yyyy-mm-dd hh:mm:ss AM|PM',]
+          }
+          
+          wl.chosen={
+               selecteOptions:'请选择多项',
+               selecteOption :'请选择一项',
+               noResults :'没有匹配的结果'
+          }
+          
+          wl.page ={"login":{"title":"请先登录","userName":"用户名","password":"密码","signin":"登录"},"userPage":{"userManagement":"用户管理","customerID":"客户ID","customerName":"客户姓名","address":"地址","linkman":"联系人","postCode":"邮编","phone":"电话","email":"邮箱","cityName":"城市"}};
+          
+          
+  }).call(this);
+</script>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../../develop/css/main.css" type="text/css"/>
     <script type="text/javascript" src="../../develop/js/base.js"></script>
+    <script type="text/javascript" src="../../develop/js/modules/login.js" data-main="login"></script>
   </head>
   <body style="padding: 100px;">
-    <div class="container">
-      <form action="">
-        <h5>登陆页面</h5>
+    <div id="login" class="container">
+      <form action="" class="form-signin">
+        <h2>请先登录</h2>
         <input type="text" placeholder="用户名" name="loginName" class="input-block-level validate[required]"/>
         <input type="password" placeholder="密码" name="password" class="input-block-level validate[required]"/>
+        <label>
+          <select class="input-block-level language_select">
+            <option value="zh_CN">中文</option>
+            <option value="en">English</option>
+          </select>
+        </label>
         <button type="submit" class="btn btn-primary">登录</button>
       </form>
     </div>

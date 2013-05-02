@@ -1,18 +1,118 @@
 <!DOCTYPE html>
-<!--include modules/gotoJs-->
+<script type="text/javascript">
+  (function() {
+          var wl;
+          
+          wl = window.languages = {};
+          
+          wl.apprise = {
+              'textOk': ' OK ',
+              'textCancel': ' Cancel ',
+              'textYes': ' Yes ',
+              'textNo':' No '
+          };
+          
+          wl.datagrid = {
+              noSelected: 'Please select a column of data!!',
+              add: ' Add ',
+              'delete': ' Delete ',
+              modify: ' Modify ',
+              noItem: 'no result!'
+          };
+          
+          wl.daterangepicker ={
+               applyLabel:' OK ',
+               fromLabel:'From',
+               toLabel:'To',
+               customRangeLabel:'Custom Range',
+               daysOfWeek:['Su','Mo','Tu','We','Th','Fr','Sa'],
+               monthNames:['January','February','March','April','May','June','July','August','September','October','November','December'],
+               today:'Today',
+               yestoday :'Yestoday',
+               last7days:'Last 7 Days',
+               last30days:'Last 30 Days',
+               thisMonth:'This Month',
+               lastMonth:'Last Month'
+          };
+          
+          wl.datetimepicker={
+                days: ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'],
+                daysShort: ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'],
+                daysMin: ['Su','Mo','Tu','We','Th','Fr','Sa'],
+                months: wl.daterangepicker.monthNames,
+                monthsShort:['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec']
+          }
+          
+          wl.uploadify={
+                selectFile:'Select Files',
+                uploadErrorMsg:['Some files were not added to the queue:','The file named  ',' is already in the queue.Do you want to replace the existing item in the queue?','The number of files selected exceeds the remaining upload limit','The number of files selected exceeds the queue size limit','exceeds the size limit','is empty','is not an accepted file type','HTTP Error','Missing Upload URL','IO Error','Security Error','The upload limit has been reached','Exceeds Upload Limit','Validation Error','already exists on the server.Would you like to replace the existing file?'],
+                cancel:' Cancel ',
+                file:'The file',
+                error:'Error',
+                stop:'Stopped',
+                finish:'Complete'
+          }
+          
+          wl.validationEngineLanguage={
+              required:['* This field is required','* Please select an option','* This checkbox is required','* Both date range fields are required'],
+              dateRange:['* Invalid','Date Range'],
+              dateTimeRange:['* Invalid','Date Time Range'],
+              minSize:['* Minimum ',' characters required'],
+              maxSize:['* Maximum ',' characters allowed'],
+              groupRequired:['* You must fill one of the following fields'],
+              min:['* Minimum value is '],
+              max:['* Maximum value is '],
+              past:['* Date prior to '],
+              future:['* Date past'],
+              maxCheckbox:['* Maximum ','options allowed'],
+              minCheckbox:['* Please select ','options'],
+              equals:['* Fields do not match'],
+              creditCard:['* Invalid credit card number'],
+              phone:['* Invalid phone number'],
+              email:['* Invalid email address'],
+              integer:['* Not a valid integer'],
+              number:['* Invalid floating decimal number'],
+              date:['* Invalid date, must be in YYYY-MM-DD format'],
+              ipv4:['* Invalid IP address'],
+              url:['* Invalid URL'],
+              onlyNumberSp:['* Numbers only'],
+              onlyLetterSp:['* Letters only'],
+              onlyLetterNumber:['* No special characters allowed'],
+              dateFormat:['* Invalid Date'],
+              dateTimeFormat:['* Invalid Date or Date Format','Expected Format: ','mm/dd/yyyy hh:mm:ss AM|PM or ','yyyy-mm-dd hh:mm:ss AM|PM',]
+          }
+          
+          wl.chosen={
+               selecteOptions:'Select Some Options',
+               selecteOption :'Select an Option',
+               noResults :'No results match'
+          }
+          
+          wl.page ={"login":{"title":"Please sign in","userName":"User Name","password":"Password","signin":"Sign in"},"userPage":{"userManagement":"User Management","customerID":"Customer ID","customerName":"Customer Name","address":"Address","linkman":"Linkman","postCode":"Post Code","phone":"Phone","email":"Email","cityName":"City Name"}};
+          
+          
+  }).call(this);
+</script>
 <html>
   <head>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
     <link rel="stylesheet" href="../../develop/css/main.css" type="text/css"/>
     <script type="text/javascript" src="../../develop/js/base.js"></script>
+    <script type="text/javascript" src="../../develop/js/modules/login.js" data-main="login"></script>
   </head>
   <body style="padding: 100px;">
-    <div class="container">
-      <form action="">
-        <h5>登陆页面</h5>
-        <input type="text" placeholder="用户名" name="loginName" class="input-block-level validate[required]"/>
-        <input type="password" placeholder="密码" name="password" class="input-block-level validate[required]"/>
-        <button type="submit" class="btn btn-primary">登录</button>
+    <div id="login" class="container">
+      <form action="" class="form-signin">
+        <h2>Please sign in</h2>
+        <input type="text" placeholder="User Name" name="loginName" class="input-block-level validate[required]"/>
+        <input type="password" placeholder="Password" name="password" class="input-block-level validate[required]"/>
+        <label>
+          <select class="input-block-level language_select">
+            <option value="zh_CN">中文</option>
+            <option value="en">English</option>
+          </select>
+        </label>
+        <button type="submit" class="btn btn-primary">Sign in</button>
       </form>
     </div>
   </body>

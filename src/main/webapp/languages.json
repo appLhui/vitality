@@ -66,6 +66,12 @@
         "v_dateFormat": ["* 无效的日期格式"],
         "v_dateTimeFormat": ["* 无效的日期或时间格式", "可接受的格式：", "mm/dd/yyyy hh:mm:ss AM|PM 或 ", "yyyy-mm-dd hh:mm:ss AM|PM"],
         "page": {
+            "login":{
+               "title":"请先登录",
+                "userName":"用户名",
+                "password":"密码",
+                "signin":"登录"
+            },
             "userPage": {
                 "userManagement": "用户管理",
                 "customerID": "客户ID",
@@ -146,6 +152,12 @@
         "v_dateFormat": ["* Invalid Date"],
         "v_dateTimeFormat": ["* Invalid Date or Date Format", "Expected Format: ", "mm/dd/yyyy hh:mm:ss AM|PM or ", "yyyy-mm-dd hh:mm:ss AM|PM"],
         "page": {
+            "login":{
+                "title":"Please sign in",
+                "userName":"User Name",
+                "password":"Password",
+                "signin":"Sign in"
+            },
             "userPage": {
                 "userManagement": "User Management",
                 "customerID": "Customer ID",
