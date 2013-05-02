@@ -6,7 +6,7 @@
       var TopMenuModel, TopMenuView, topMenuModel, topMenuView;
 
       TopMenuModel = Backbone.Model.extend({
-        url: '../json/topMenu.json',
+        url: '../../json/topMenu.json',
         defaults: {
           suc: true,
           errorMsg: null,

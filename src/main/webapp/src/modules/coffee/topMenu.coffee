@@ -3,7 +3,7 @@ define (require, exports) ->
   require 'plug-in/dropdown'
   exports.init = ->
     TopMenuModel=Backbone.Model.extend
-      url:'../json/topMenu.json'
+      url:'../../json/topMenu.json'
       defaults:
         suc:true
         errorMsg:null

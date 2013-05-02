@@ -51,7 +51,7 @@ define (require) ->
       render: ->
         $(@el).find('table').datagrid
           dataSource: dataSource
-          url: '../customer/users'
+          url: '../../customer/users'
           key: 'customerId'
           beforeFormShow: ->
           reloadForm: method.reloadForm
