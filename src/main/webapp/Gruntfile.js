@@ -203,7 +203,7 @@ module.exports = function (grunt) {
             },
             jade: {
                 files: ['./src/jade/**/*.jade'],
-                tasks: ['jade:zh_CN', 'livereload']
+                tasks: ['jade', 'livereload']
             }
         }
 
