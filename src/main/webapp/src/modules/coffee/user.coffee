@@ -9,6 +9,7 @@ define (require) ->
   $ ->
     dataSource=
       columns: [
+
         {property: 'customerId'
         label: window.languages.page.userPage.customerID
         sortable: true }
