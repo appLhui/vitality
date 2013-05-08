@@ -23,6 +23,10 @@ module.exports = function (grunt) {
                 src: './src/modules/base_css/**/*.css',
                 dest: './develop/css/main.css'
             },
+            develop_mobile_css: {
+                src: './src/modules/mobile_css/**/*.css',
+                dest: './develop/css/mobile.css'
+            },
             develop_js: {
                 src: [
                     './src/base/jquery.js',
@@ -32,6 +36,13 @@ module.exports = function (grunt) {
                     './src/base/swfobject.js'
                 ],
                 dest: './develop/js/base.js'
+            },
+            develop_mobile_js: {
+                src: [
+                    './src/base/jquery.js',
+                    './src/modules/mobile_js/*.js'
+                ],
+                dest: './develop/js/base_mobile.js'
             }
         },
         cssmin: {
@@ -169,6 +180,21 @@ module.exports = function (grunt) {
                         cwd: './src/jade',
                         src: ['**/*.jade', '!modules/*.jade'],
                         dest: './html/en',
+                        ext: '.html'
+                    }
+                ]
+            },
+            ja: {
+                options: {
+                    pretty:true,
+                    data:'<%= pkg.JA %>'
+                },
+                files: [
+                    {
+                        expand: true,
+                        cwd: './src/jade',
+                        src: ['**/*.jade', '!modules/*.jade'],
+                        dest: './html/ja',
                         ext: '.html'
                     }
                 ]

@@ -1,7 +1,5 @@
 package com.visionet.demo.web.controller;
 
-import java.util.List;
-
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -19,6 +17,7 @@ import com.visionet.common.model.datagrid.DataOptions;
 import com.visionet.common.model.datagrid.ReGridData;
 import com.visionet.common.web.util.BaseController;
 import com.visionet.demo.model.customer.CustomerModel;
+import com.visionet.demo.model.loginuser.LoginUserModel;
 import com.visionet.demo.service.CustomerService;
 
 
@@ -56,11 +55,12 @@ public class CustomerController extends BaseController{
     
     @RequestMapping(value = "/users", method = {RequestMethod.PUT})
     @ResponseBody
-    public Result<CustomerModel> addUsers(CustomerModel customerModel) {
+    public Result<CustomerModel> addUsers(CustomerModel customerModel,HttpServletRequest request) {
     	Result<CustomerModel> result= new Result<CustomerModel>();
          //TODO 制作添加功能 
     	result.setData(null);
-    	customerModel.setCompanyId(0L);
+    	LoginUserModel loginUserModel=(LoginUserModel)request.getSession().getAttribute("LoginUserInfo");
+    	customerModel.setCompanyId(new Long(loginUserModel.getCompanyId()));
     	customerService.save(customerModel);
         return result;
     }

@@ -20,4 +20,6 @@ public interface CustomerDao extends IBaseDao<CustomerModel, Integer> {
     List<CustomerModel> queryByCondition(String hql);
     
     public int countAll();
+    
+    
 }

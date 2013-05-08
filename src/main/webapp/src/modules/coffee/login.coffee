@@ -12,7 +12,8 @@ define (require) ->
         @render()
       render: ->
         @language_select.find('option[value="'+@url.split('/')[5]+'"]').attr 'selected','selected'
-        @form.validationEngine();
+        @form.validationEngine
+          ajaxFormValidation:false
         @
       onlanguageChange:(e) ->
         top.location='../../html/'+e.target.value+'/login.html'

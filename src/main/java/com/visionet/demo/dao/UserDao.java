@@ -12,5 +12,6 @@ public interface UserDao extends IBaseDao<UserModel, Integer> {
     List<UserModel> query(int pn, int pageSize, UserQueryModel command);
 
     int countQuery(UserQueryModel command);
-
+    
+    
 }

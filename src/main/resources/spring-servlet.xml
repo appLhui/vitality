@@ -75,8 +75,8 @@
                 <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
                     <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
                     <property name="contentType" value="text/html"/>
-                    <property name="prefix" value="/WEB-INF/jsp/"/>
-                    <property name="suffix" value=".jsp"/>
+                       <property name="prefix" value="/html/"/>
+       					 <property name="suffix" value=".html"/>
                 </bean>
             </list>  
         </property>  
@@ -93,8 +93,8 @@
     <bean id="defaultViewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver" p:order="3">
         <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"/>
         <property name="contentType" value="text/html"/>        
-        <property name="prefix" value="/WEB-INF/jsp/"/>
-        <property name="suffix" value=".jsp"/>
+        <property name="prefix" value="/html/"/>
+        <property name="suffix" value=".html"/>
     </bean>
 
     <!-- json view -->

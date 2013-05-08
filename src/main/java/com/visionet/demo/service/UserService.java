@@ -13,4 +13,6 @@ import com.visionet.demo.model.user.UserQueryModel;
 public interface UserService extends IBaseService<UserModel, Integer> {
 
     Page<UserModel> query(int pn, int pageSize, UserQueryModel command);
+    
+    
 }

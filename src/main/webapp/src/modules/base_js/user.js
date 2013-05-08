@@ -59,7 +59,7 @@
         render: function() {
           $(this.el).find('table').datagrid({
             dataSource: dataSource,
-            url: '../../customer/users',
+            url: '../customer/users',
             key: 'customerId',
             beforeFormShow: function() {},
             reloadForm: method.reloadForm,

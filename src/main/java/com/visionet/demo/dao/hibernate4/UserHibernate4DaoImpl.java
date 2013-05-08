@@ -2,6 +2,7 @@ package com.visionet.demo.dao.hibernate4;
 
 import java.util.List;
 
+import org.hibernate.Query;
 import org.springframework.stereotype.Repository;
 
 import com.visionet.common.dao.hibernate4.BaseHibernateDao;
@@ -42,5 +43,7 @@ public class UserHibernate4DaoImpl extends BaseHibernateDao<UserModel, Integer> 
             usernameLikeStr
         };
     }
+
+	
 
 }

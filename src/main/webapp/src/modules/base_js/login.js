@@ -17,7 +17,9 @@
         },
         render: function() {
           this.language_select.find('option[value="' + this.url.split('/')[5] + '"]').attr('selected', 'selected');
-          this.form.validationEngine();
+          this.form.validationEngine({
+            ajaxFormValidation: false
+          });
           return this;
         },
         onlanguageChange: function(e) {

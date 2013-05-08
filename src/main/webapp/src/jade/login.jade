@@ -9,13 +9,14 @@ html
         script(type="text/javascript",src="../../#{versions}/js/modules/login.js",data-main="login")
     body(style="padding: 100px;")
         .container#login
-            form.form-signin(action="")
+            form.form-signin(action="../../loginController/login")
                 h2 #{page.login.title}
 
                 input.input-block-level(type="text",class="validate[required]",placeholder="#{page.login.userName}",name="loginName")
                 input.input-block-level(type="password",class="validate[required]",placeholder="#{page.login.password}",name="password")
                 label
-                    select.input-block-level.language_select
+                    select.input-block-level.language_select(name="language")
                         option(value="zh_CN") 中文
                         option(value="en") English
+                        option(value="ja") 日本
                 button.btn.btn-primary(type="submit") #{page.login.signin}

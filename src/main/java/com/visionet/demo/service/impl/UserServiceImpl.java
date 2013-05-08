@@ -47,5 +47,9 @@ public class UserServiceImpl extends BaseService<UserModel, Integer> implements 
         return PageUtil.getPage(userDao.countQuery(command) ,pn, userDao.query(pn, pageSize, command), pageSize);
     }
 
+
+    
+	
+
    
 }

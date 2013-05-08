@@ -17,5 +17,5 @@ public interface CustomerService extends IBaseService<CustomerModel, Integer> {
     
     public ReGridData getCustomerListByPage(DataOptions dataOptions,CustomerModel customerModel);
     
-  
+   
 }
