@@ -1,0 +1,69 @@
+<!--
+<Created>with JetBrains WebStorm.</Created>
+<User>
+  <lihui></lihui>
+</User>
+<Date>
+  <13-5-6></13-5-6>
+</Date>
+<Time>下午2:00</Time>
+<To>change this template use File | Settings | File Templates.</To>-->
+<html>
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
+    <link rel="stylesheet" href="../../develop/css/mobile.css" type="text/css"/>
+    <script type="text/javascript" src="../../develop/js/base_mobile.js"></script>
+    <title>知新平台</title>
+  </head>
+  <body>
+    <div data-role="page" data-theme="a" id="page1">
+      <div data-role="header" data-theme="inline">
+        <h1>知新平台</h1>
+      </div>
+      <div data-role="content">
+        <ul data-role="listview" data-inset="true" data-divider-theme="f">
+          <li data-icon="arrow-right"><a href="#page2" data-transition="flow">群组</a></li>
+          <li data-icon="arrow-right"><a>标签</a></li>
+          <li data-icon="arrow-right"><a>搜索</a></li>
+          <li data-icon="arrow-right"><a>个人信息</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="page" data-theme="a" id="page2">
+      <div data-role="header" data-theme="inline"><a href="#page1" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-transition="flow"></a>
+        <h1>知新平台2</h1><a href="#" data-role="button" data-icon="plus" data-iconpos="notext" data-inline="true"></a><br/>
+      </div>
+      <div data-role="content">
+        <ul data-role="listview" data-theme="c">
+          <li><a href="#page3">有事就问</a></li>
+          <li><a href="#">知新会议组</a></li>
+          <li><a href="#">知新项目组</a></li>
+        </ul>
+      </div>
+    </div>
+    <div data-role="page" data-theme="a" id="page3">
+      <div data-role="header" data-theme="inline"><a href="#page1" data-role="button" data-icon="arrow-l" data-iconpos="notext" data-transition="flow"></a>
+        <h1>知新平台3</h1><a href="#" data-role="button" data-icon="plus" data-iconpos="notext" data-inline="true"></a>
+        <div data-role="tabs">
+          <ul>
+            <li><a href="tab-1">新鲜主题</a></li>
+            <li><a href="#tab-2">热门主题</a></li>
+            <li><a href="#tab-3">组内用户</a></li>
+          </ul>
+        </div><br/>
+      </div>
+      <div data-role="content">
+        <div id="tab-1">
+          <h2>我是tab1</h2>
+        </div>
+        <div id="tab-2">
+          <h2>我是tab2</h2>
+        </div>
+        <div id="tab-3">
+          <h2>我是tab3</h2>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
