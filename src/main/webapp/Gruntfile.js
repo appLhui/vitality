@@ -40,6 +40,9 @@ module.exports = function (grunt) {
             develop_mobile_js: {
                 src: [
                     './src/base/jquery.js',
+                    './src/base/underscore.js',
+                    './src/base/backbone.js',
+                    './src/base/backbone.localStorage.js',
                     './src/modules/mobile_js/*.js'
                 ],
                 dest: './develop/js/base_mobile.js'
@@ -63,11 +66,14 @@ module.exports = function (grunt) {
                 ]
             }
         },
-//        shell: {
-//            makeDir: {
-//                command: ' '
-//            }
-//        },
+        shell: {
+            shutdownTomcat: {
+                command: 'sh /usr/local/Cellar/tomcat/7.0.34/libexec/bin/shutdown.sh'
+            },
+            startupTomcat: {
+                command: 'sh /usr/local/Cellar/tomcat/7.0.34/libexec/bin/startup.sh'
+            }
+        },
         uglify: {
             files: {
                 expand: true,
@@ -251,7 +257,8 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks('grunt-contrib-connect');
     grunt.loadNpmTasks('grunt-regarde');          //添加监听器
 
-
+    grunt.registerTask('shutdown', ['shell:shutdownTomcat']);
+    grunt.registerTask('startup', ['shell:startupTomcat']);
     grunt.registerTask('default', ['livereload-start', 'connect', 'clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo', 'regarde']);   //默认的任务链
     grunt.registerTask('develop', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo']);   //开发版的任务链
     grunt.registerTask('release', ['clean', 'jade', 'imagemin', 'coffee', 'copy', 'jshint', 'concat', 'combo', 'cssmin', 'uglify']);  //正式版本的任务链
